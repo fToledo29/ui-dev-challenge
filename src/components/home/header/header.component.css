@@ -1,0 +1,12 @@
+.header__menu {
+    position: absolute;
+    text-align: center;
+}
+.header__menu li {
+    background-color: aliceblue;
+    list-style: none;
+    position: relative;
+    float: left;
+    padding: 2px 20px;
+    margin-right: 20px;
+}
