@@ -1,0 +1,42 @@
+.MuiAppBar-colorPrimary {
+    /* background-color: #233A6F !important;  */
+}
+.nav-container {
+    /* position: fixed;
+    top: 1px;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #233A6F; */
+}
+
+.main-menu {
+    display: inherit;
+    color: #fff;
+}
+
+.main-menu span {
+    display: flex;
+    align-self: center;
+}
+
+.main-menu-icon {
+    padding: 10px;
+}
+
+.quick-access-options {
+    position: relative;
+    color: #fff;
+    list-style: none;
+    display: flex;
+    margin-right: 15px;
+
+}
+
+.quick-access-options li {
+    float: left;
+    padding-right: 50px;
+    display: flex;
+    align-self: center;
+}

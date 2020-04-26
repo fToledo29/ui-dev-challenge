@@ -1,22 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// import logo from './logo.svg';
 import './App.css';
-import  HeaderComponent from './components/home/header/header.component';
-import Timers from './components/home/timers/timers.component';
+// import  HeaderComponent from './components/header/header.component';
+import Timers from './components/timers/timers.component';
+import Navbar from './components/nav/nav.component';
 
 function App() {
   return (
-    <div className="App">
-      <HeaderComponent></HeaderComponent>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-
-          Edit <code>src/App.js</code> and save to reload.
-        
-          Learn React
-          <Timers />
-      </header>
+    <div>
+      <Navbar/>
+      {/* <HeaderComponent></HeaderComponent> */}
+      <Router>
+        <Switch>
+          <Route path="/" component={Timers} />
+        </Switch>
+      </Router>
     </div>
   );
 }
