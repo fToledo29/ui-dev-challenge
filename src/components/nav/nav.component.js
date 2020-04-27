@@ -16,11 +16,12 @@ import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 
-
-
+/**
+ * Setting up custom styles
+ */
 const useStyles = makeStyles((theme) => ({
 	root: {
-		flexGrow: 1,
+		flexGrow: 1
 	},
 	menuButton: {
 		marginRight: theme.spacing(2),
@@ -28,12 +29,17 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		flexGrow: 1,
 	},
+	text: {
+		textTransform: 'initial'
+	}
 }));
 
+/**
+ * Sets Appbar theme
+ */
 const theme = createMuiTheme({
 	palette: {
 		primary: {
-			// light: will be calculated from palette.primary.main,
 			main: '#233A6F',
 		},
 		secondary: {
@@ -42,6 +48,9 @@ const theme = createMuiTheme({
 	},
 });
 
+/**
+ * Renders Navegation bar
+ */
 export default function Navbar() {
 	const classes = useStyles();
 	return (
@@ -59,8 +68,9 @@ export default function Navbar() {
 						<Typography variant="h6" className={classes.title}>
 							M360
 						</Typography>
-						<Button color="inherit">
-							Welcome Fernando
+						<Button color="inherit" className={classes.text}>
+							<PersonIcon />
+							Welcome Fernando Healt Plan - DEV-RJ0232T
 						</Button>
 						<Button color="inherit">
 							<HomeIcon />
