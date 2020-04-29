@@ -1,20 +1,27 @@
 import React from 'react';
+
 // Mat components
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
+
 // Styles
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import './nav.component.css';
+
 //  Mat Icons
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
+import { createMuiTheme } from "@material-ui/core/styles";
+
+// Utils
+import * as shared from '../../shared/constants';
 
 /**
  * Setting up custom styles
@@ -31,32 +38,23 @@ const useStyles = makeStyles((theme) => ({
 	},
 	text: {
 		textTransform: 'initial'
+	},
+	blueBackground: {
+		backgroundColor: shared.USESTYLES.blueBackground,
 	}
 }));
-
-/**
- * Sets Appbar theme
- */
-const theme = createMuiTheme({
-	palette: {
-		primary: {
-			main: '#233A6F',
-		},
-		secondary: {
-			main: '#0089CF',
-		},
-	},
-});
 
 /**
  * Renders Navegation bar
  */
 export default function Navbar() {
+	
 	const classes = useStyles();
+	
 	return (
 		<div className="nav-container">
-			<ThemeProvider theme={theme}>
-				<AppBar position="static">
+			{/* <ThemeProvider theme={themex}> */}
+				<AppBar position="static" className={classes.blueBackground}>
 					<Toolbar>
 						<IconButton
 							edge="start"
@@ -83,7 +81,7 @@ export default function Navbar() {
 						</Button>
 					</Toolbar>
 				</AppBar>	
-			</ThemeProvider>
+			{/* </ThemeProvider> */}
 		</div>
 	);
 }
