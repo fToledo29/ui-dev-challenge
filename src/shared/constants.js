@@ -1,7 +1,12 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const mainBlueColor = '#22396E';
-const mainGreyColor = '#C9C9C9';
+export const mainBlueColor = '#22396E';
+export const mainGreyColor = '#C9C9C9';
+
+// For actions
+export const TIMERS = 'TIMERS';
+export const SEARCH = 'SEARCH';
+export const TIMER_OPTIONS = 'TIMER_OPTIONS';
 
 /**
  * Sets main theme
