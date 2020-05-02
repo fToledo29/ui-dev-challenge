@@ -24,6 +24,7 @@ export const USESTYLES = {
 	blueLabel: mainBlueColor,
 	grayLabel: mainGreyColor,
 	grayBackground: mainGreyColor,
-	blueBackground: mainBlueColor
+	blueBackground: mainBlueColor,
+	textTransform: 'none'
 		// backgroundColor: mainBlueColor,
 };

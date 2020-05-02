@@ -7,25 +7,35 @@ import Button from '@material-ui/core/Button';
 import SearchParameters from './search-parameters/search-parameters.component'
 
 // Utils
-// import * as shared from '../../../shared/constants'
-
+import * as shared from '../../../shared/constants';
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-    backgroundColor: '#ececec'
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12
-  },
+	root: {
+		minWidth: 275,
+		backgroundColor: '#ececec'
+	},
+	bullet: {
+		display: 'inline-block',
+		margin: '0 2px',
+		transform: 'scale(0.8)',
+	},
+	title: {
+		fontSize: 14,
+	},
+	pos: {
+		marginBottom: 12,
+		textTransform: 'none'
+	},
+	reset: {
+		backgroundColor: '#10a5aa',
+		color: '#fff',
+		textTransform: shared.USESTYLES.textTransform 
+	},
+	search: {
+		backgroundColor: shared.USESTYLES.blueBackground,
+		color: '#fff',
+		textTransform: shared.USESTYLES.textTransform 
+	}
 });
 
 export default function Search() {
@@ -38,7 +48,14 @@ export default function Search() {
             <SearchParameters />
          </CardContent>
          <CardActions>
-            <Button size="small">Learn More</Button>
+			<Button variant="contained" className={classes.search} color="primary">
+				Search
+			</Button>
+			<Button 
+			variant="contained" 
+			className={classes.reset}>
+				Reset
+			</Button>
          </CardActions>
       </Card>
    );

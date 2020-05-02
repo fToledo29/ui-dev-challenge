@@ -1,11 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import NativeSelect from '@material-ui/core/NativeSelect';
 import * as selectConfig from './config-select';
-
+import InputLabel from '@material-ui/core/InputLabel';
 import { EventChange }  from '../../../../classes/events';
 
 // Styles
@@ -52,9 +51,12 @@ export default function SearchParameters() {
   return (
 	<div>
 	  <form className={classes.root} noValidate autoComplete="off">
-		<Typography className={classes.pos}>
-		  	<FormControl className={classes.margin}>
-		  		Source
+		<div className="field-wrapper">
+			
+			<InputLabel className={classes.pos}>Source</InputLabel>
+
+			<FormControl className={classes.margin}>
+		  	
 				<NativeSelect
 				id="select-source"
 				value={onSource.value}
@@ -67,10 +69,13 @@ export default function SearchParameters() {
 					<option value={2}>Member</option>
 				</NativeSelect>
 			</FormControl>
-		</Typography>
+		
+		</div>
+		
 
-		<Typography className={classes.pos} color="textSecondary">
-			  Primary ID
+		<div className="field-wrapper">
+	  
+		  <InputLabel className={classes.pos}  required>Primary ID</InputLabel>
 		  <TextField
 			height="25%"
 			className={classes.backGroundField}
@@ -79,11 +84,14 @@ export default function SearchParameters() {
 			variant="outlined"
 			size="small"
 		  />
-		</Typography>
 
-		<Typography className={classes.pos} color="textSecondary">
-		  	<FormControl className={classes.margin}>
-			  Trigger Status
+		</div>
+
+		<div className="field-wrapper">
+			<InputLabel className={classes.pos}>Trigger Status</InputLabel>
+		  	
+			<FormControl className={classes.margin}>
+			  
 				<NativeSelect
 				id="select-trigger"
 				value={onTS.value}
@@ -97,11 +105,15 @@ export default function SearchParameters() {
 					<option value={3}>CLOSED</option>
 				</NativeSelect>
 			</FormControl>
-		</Typography>
+		
+		</div>
 
-		<Typography className={classes.pos} color="textSecondary">
-		  	<FormControl className={classes.margin}>
-			  Trigger Type
+		<div className="field-wrapper">
+		
+			<InputLabel className={classes.pos}>Trigger Type</InputLabel>
+		  	
+			<FormControl className={classes.margin}>
+			  
 				<NativeSelect
 				id="demo-customized-select-native"
 				value={onTriggerType.value}
@@ -116,7 +128,8 @@ export default function SearchParameters() {
 					<option value={30}>Four</option>
 				</NativeSelect>
 			</FormControl>
-		</Typography>
+
+		</div>
 	  </form>
 	</div>
   );
