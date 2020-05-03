@@ -37,7 +37,11 @@ const useStyles = makeStyles((theme) => ({
 		textTransform: 'initial'
 	},
 	blueBackground: {
+		
+	}, 
+	appBar: {
 		backgroundColor: shared.USESTYLES.blueBackground,
+		height: '8vh'
 	}
 }));
 
@@ -53,7 +57,7 @@ export default function Navbar() {
 		<div className="nav-container">
 			
 
-				<AppBar position="static" className={classes.blueBackground}>
+				<AppBar position="static" className={classes.appBar}>
 					<Toolbar>
 					<TemporaryDrawer></TemporaryDrawer>
 						

@@ -1,33 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import { View } from 'react-native'
-
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import IconButton from '@material-ui/core/IconButton';
-
-import Toolbar from '@material-ui/core/Toolbar';
 import './appbar.component.css';
 import { faCalculator, faUsers, faEnvelopeOpen, faUserTag, faSitemap } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PersonIcon from '@material-ui/icons/Person';
 import MarkunreadIcon from '@material-ui/icons/Markunread';
-// import AppBar from '@material-ui/core/AppBar';
-// import Typography from '@material-ui/core/Typography';
-// import Button from '@material-ui/core/Button';
-// import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     flexGrow: 1,
-//   },
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     flexGrow: 1,
-//   },
-// }));
 
 const useStyles = makeStyles((theme) => ({
 	list: {
@@ -37,8 +17,18 @@ const useStyles = makeStyles((theme) => ({
 		width: "auto",
 	},
 	menuButton: {
-		// marginRight: theme.spacing(2),
+		height: '100%',
+		width: '100%',
+		marginLeft: 0,
+		"&:hover": {
+			backgroundColor: "transparent"
+		  }
+	},
+	span: {
+		marginRight: '1.2rem',
+
 	}
+	
 }));
 
 
@@ -46,70 +36,121 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <div className='side-menu'>
+    <div className='side-menu_open'>
 		<ul>
+			<li className="side-menu-logo">
+				Virginia Premier
+			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">		
-					<PersonIcon />
+					<span className={classes.span}>
+						<PersonIcon />
+					</span>
+					<span>
+						Dashboard
+					</span>
 				</IconButton>
 			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
-					<FontAwesomeIcon icon={faUsers} />
-				</IconButton>
-			</li>
-			<li>
-			<IconButton
-				edge="start"
-				color="inherit"
-				aria-label="menu">
-					<MarkunreadIcon />
-				</IconButton>
-			</li>
-			<li>
-				<IconButton
-				edge="start"
-				color="inherit"
-				aria-label="menu">
-					<FontAwesomeIcon icon={faEnvelopeOpen} />
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faUsers} />
+					</span>
+					<span>
+						Application
+					</span>
 				</IconButton>
 			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
-					<FontAwesomeIcon icon={faCalculator} />
+					<span className={classes.span}>
+						<MarkunreadIcon />
+					</span>
+					<span>
+						Member
+					</span>
 				</IconButton>
 			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
-					<WatchLaterIcon />
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faEnvelopeOpen} />
+					</span>
+					<span>
+						Letter Request
+					</span>
 				</IconButton>
 			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
-					<FontAwesomeIcon icon={faUserTag} />
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faCalculator} />
+					</span>
+					<span>
+						Letter Review
+					</span>
 				</IconButton>
 			</li>
 			<li>
 				<IconButton
+				className={classes.menuButton}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
-					<FontAwesomeIcon icon={faSitemap} />
+					<span className={classes.span}>
+						<WatchLaterIcon />
+					</span>
+					<span>
+						Billing
+					</span>
+				</IconButton>
+			</li>
+			<li>
+				<IconButton
+				className={classes.menuButton}
+				edge="start"
+				color="inherit"
+				aria-label="menu">
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faUserTag} />
+					</span>
+					<span>
+						Timers
+					</span>
+				</IconButton>
+			</li>
+			<li>
+				<IconButton
+				className={classes.menuButton}
+				edge="start"
+				color="inherit"
+				aria-label="menu">
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faSitemap} />
+					</span>
+					<span>
+						Security Roles
+					</span>
 				</IconButton>
 			</li>
 		</ul>

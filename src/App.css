@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* *** Main styles *** */
+
+.app-container {
+	display: flex;
+	height: 100%;
+}
+
+.body-section {
+	flex: 1;
+	overflow: auto;
+}
+
+.appbar-section_open {
+	width: 15%;
+}
+
+#root {
+	height: 100%;
+}

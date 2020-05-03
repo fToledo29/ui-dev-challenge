@@ -10,15 +10,18 @@ import ButtonAppBar from './components/nav/appbar/appbar.component';
 
 function App() {
   return (
-    <div>
-      <Navbar/>
-      {/* <HeaderComponent></HeaderComponent> */}
-      <Router>
-	  <ButtonAppBar ></ButtonAppBar>
-        <Switch>
-          <Route path="/" component={Timers} />
-        </Switch>
-      </Router>
+    <div className="app-container">
+		<div className="appbar-section_open">
+	  		<ButtonAppBar />
+		</div>
+		<div className="body-section">
+			<Navbar/>
+			<Router>
+				<Switch>
+				<Route path="/" component={Timers} />
+				</Switch>
+			</Router>
+		</div>
     </div>
   );
 }

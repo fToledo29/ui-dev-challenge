@@ -1,3 +1,4 @@
+/* Sibebar menu on status closed */
 .side-menu {
 	height: 90vh;
 	position: fixed;
@@ -7,13 +8,42 @@
 
 }
 
-.side-menu ul {
+/* Sibebar menu on status opened */
+.side-menu_open{
+	height: 100%;
+	position: relative;
+	background-color: #DFE2EE;
+}
+
+div[class*='side-menu'] ul {
 	list-style: none;
 	padding: 0px;
 	text-align: center;
+	margin: 0px;
 }
 
-.side-menu ul li {
-		padding-bottom: 1rem;
-
+.side-menu-logo {
+	height: 8vh;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
+div[class*='side-menu'] ul li:not(.side-menu-logo) {
+	/* padding-top: 0.5rem;	
+	padding-bottom: .5rem;
+	padding-left: 26px; */
+	display: flex;
+	/* padding: 0; */
+}
+div[class*='side-menu'] ul li:not(.side-menu-logo):hover {
+	background-color: rgba(0, 0, 0, 0.04);
+	border-radius: 5%;
+}
+
+div[class*='side-menu'] ul li span:nth-child(2) {
+	font-size: 15px;
+}
+
+
