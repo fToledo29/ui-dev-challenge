@@ -1,8 +1,9 @@
 /* Sibebar menu on status closed */
-.side-menu {
-	height: 90vh;
-	position: fixed;
-	width: 50px;
+.side-menu_closed {
+	height: 100%;
+	/* height: 90vh; */
+	/* position: fixed; */
+	/* width: 50px; */
 	background-color: #DFE2EE;
 	width: 5vw;
 

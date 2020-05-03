@@ -20,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
 		height: '100%',
 		width: '100%',
 		marginLeft: 0,
+		justifyContent: 'left',
+		paddingLeft: '1.3rem',
 		"&:hover": {
 			backgroundColor: "transparent"
 		  }
