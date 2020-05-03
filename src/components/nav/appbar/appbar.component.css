@@ -1,0 +1,19 @@
+.side-menu {
+	height: 90vh;
+	position: fixed;
+	width: 50px;
+	background-color: #DFE2EE;
+	width: 5vw;
+
+}
+
+.side-menu ul {
+	list-style: none;
+	padding: 0px;
+	text-align: center;
+}
+
+.side-menu ul li {
+		padding-bottom: 1rem;
+
+}

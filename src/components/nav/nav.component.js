@@ -51,6 +51,7 @@ export default function Navbar() {
 	return (
 			
 		<div className="nav-container">
+			
 
 				<AppBar position="static" className={classes.blueBackground}>
 					<Toolbar>

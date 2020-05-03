@@ -9,6 +9,6 @@ export const search = () => {
 export const timers = () => {
 	return {
 		type: shared.TIMERS,
-		oprions: shared.TIMER_OPTIONS 
+		oprion: shared.TIMER_OPTIONS 
 	}
 }

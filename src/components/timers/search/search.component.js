@@ -5,9 +5,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import SearchParameters from './search-parameters/search-parameters.component'
+import SearchResult from './search-result/search-result.component';
+
 
 // Utils
 import * as shared from '../../../shared/constants';
+
+
 
 const useStyles = makeStyles({
 	root: {
@@ -27,29 +31,40 @@ const useStyles = makeStyles({
 		textTransform: 'none'
 	},
 	reset: {
-		backgroundColor: '#10a5aa',
-		color: '#fff',
+		backgroundColor: shared.USESTYLES.aquaColor,
+		color: shared.USESTYLES.whiteColor,
 		textTransform: shared.USESTYLES.textTransform 
 	},
 	search: {
 		backgroundColor: shared.USESTYLES.blueBackground,
-		color: '#fff',
+		color: shared.USESTYLES.whiteColor,
 		textTransform: shared.USESTYLES.textTransform 
 	}
 });
 
 export default function Search() {
+
+	const [showResults, setShowResults] = React.useState(false);
+
+	const onClick = () => setShowResults(true);
    
    const classes = useStyles();
   
    return (
       <Card className={classes.root}>
          <CardContent>
-            <SearchParameters />
+           
+			{ !showResults ?  <SearchParameters /> : null }
+
+			{ showResults ?  <SearchResult/> : null }
          </CardContent>
          <CardActions>
-			<Button variant="contained" className={classes.search} color="primary">
-				Search
+			<Button 
+			 onClick={onClick} 
+			variant="contained"
+			className={classes.search} 
+			color="primary">
+			 	Search
 			</Button>
 			<Button 
 			variant="contained" 

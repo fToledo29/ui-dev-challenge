@@ -30,6 +30,8 @@ export const USESTYLES = {
 	grayLabel: mainGreyColor,
 	grayBackground: mainGreyColor,
 	blueBackground: mainBlueColor,
-	textTransform: 'none'
+	textTransform: 'none',
+	aquaColor: '#10a5aa',
+	whiteColor: '#fff'
 		// backgroundColor: mainBlueColor,
 };

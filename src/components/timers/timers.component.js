@@ -6,6 +6,7 @@ import Search from './search/search.component';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { makeStyles } from '@material-ui/core/styles';
 
 // Utils
@@ -35,9 +36,15 @@ const useStyles = makeStyles((theme) => ({
 	greyBackground: {
 		backgroundColor: shared.USESTYLES.grayBackground
     },
-    grayLabel: {
-        color: shared.USESTYLES.blueLabel
-    }
+    blueLabel: {
+		color: shared.USESTYLES.blueLabel,
+		display: 'inherit',
+		lineHeight: '24px'
+	},
+	aquaColor: {
+		paddingRight: '15px',
+		color: shared.USESTYLES.aquaColor
+	}
 }));
 
 
@@ -58,8 +65,8 @@ export default function Timers() {
         <div className="timers-container">
                 <AppBar position="static">
                     <Toolbar className={classes.greyBackground}>
-                        <Typography variant="h6" className={classes.grayLabel}>
-                            Search
+                        <Typography variant="h6" className={classes.blueLabel}>
+							<RemoveCircleIcon className={classes.aquaColor} /> Search
                         </Typography>
                     </Toolbar>
                 </AppBar>
