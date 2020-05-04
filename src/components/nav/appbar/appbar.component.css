@@ -1,12 +1,9 @@
 /* Sibebar menu on status closed */
-.side-menu_closed {
+.side-menu_close {
 	height: 100%;
-	/* height: 90vh; */
-	/* position: fixed; */
-	/* width: 50px; */
 	background-color: #DFE2EE;
-	width: 5vw;
-
+	/* width: 5vw; */
+	transition: ease-in .5s all;
 }
 
 /* Sibebar menu on status opened */
@@ -14,6 +11,7 @@
 	height: 100%;
 	position: relative;
 	background-color: #DFE2EE;
+	transition: ease-in .5s all;
 }
 
 div[class*='side-menu'] ul {
@@ -32,19 +30,18 @@ div[class*='side-menu'] ul {
 }
 
 div[class*='side-menu'] ul li:not(.side-menu-logo) {
-	/* padding-top: 0.5rem;	
-	padding-bottom: .5rem;
-	padding-left: 26px; */
 	display: flex;
-	/* padding: 0; */
 }
 div[class*='side-menu'] ul li:not(.side-menu-logo):hover {
 	background-color: rgba(0, 0, 0, 0.04);
 	border-radius: 5%;
 }
 
+div[class*='side-menu_open'] ul li:not(.side-menu-logo):hover span {
+	background-color: transparent;
+	/* border-radius: 5%; */
+}
+
 div[class*='side-menu'] ul li span:nth-child(2) {
 	font-size: 15px;
 }
-
-

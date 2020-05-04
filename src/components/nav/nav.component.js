@@ -15,7 +15,13 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
-import TemporaryDrawer from '../nav/drawer.component/drawer.component';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+// import TemporaryDrawer from '../nav/drawer.component/drawer.component';
+
+// Redux
+import {  useSelector, useDispatch }  from 'react-redux';
+import { menuOpen, menuClose } from '../../actions';
 
 // Utils
 import * as shared from '../../shared/constants';
@@ -49,6 +55,21 @@ const useStyles = makeStyles((theme) => ({
  * Renders Navegation bar
  */
 export default function Navbar() {
+
+	const options = useSelector(state => state.nav);
+
+	const dispatch = useDispatch();
+
+	const onToggleMenu = () => {
+		if(options.menuStatus === shared.CLOSE) {
+			dispatch(menuOpen());			
+		} else {
+			dispatch(menuClose());			
+		}
+	}
+
+
+	console.log('Options: ', options);
 	
 	const classes = useStyles();
 	
@@ -59,8 +80,16 @@ export default function Navbar() {
 
 				<AppBar position="static" className={classes.appBar}>
 					<Toolbar>
-					<TemporaryDrawer></TemporaryDrawer>
-						
+					{/* <TemporaryDrawer></TemporaryDrawer> */}
+					<IconButton
+					// onClick={toggleDrawer(anchor, true)}
+					onClick={() => onToggleMenu()}
+					edge="start"
+					className={classes.menuButton}
+					color="inherit"
+					aria-label="menu">		
+						<MenuIcon />
+					</IconButton>
 						
 						<Typography variant="h6" className={classes.title}>
 							M360

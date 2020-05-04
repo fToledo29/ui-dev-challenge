@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import * as shared from '../../shared/constants'
 
 import {  useSelector, useDispatch }  from 'react-redux';
-import { search } from '../../reducers/actions';
+import { timers, search } from '../../actions';
 
 
 
@@ -53,11 +53,13 @@ const useStyles = makeStyles((theme) => ({
  */
 export default function Timers() {
 
-	const option = useSelector(state => state.options);
+	const option = useSelector(state => state.timer);
 
 	const dispatch = useDispatch();
-	
-	dispatch(search());
+
+	// dispatch(search());
+
+	console.log('Options: ', option);
 
     const classes = useStyles();
 
@@ -66,7 +68,9 @@ export default function Timers() {
                 <AppBar position="static">
                     <Toolbar className={classes.greyBackground}>
                         <Typography variant="h6" className={classes.blueLabel}>
-							<RemoveCircleIcon className={classes.aquaColor} /> Search
+							<RemoveCircleIcon className={classes.aquaColor} /> 
+							{/* {option} */}
+							{/* Search */}
                         </Typography>
                     </Toolbar>
                 </AppBar>

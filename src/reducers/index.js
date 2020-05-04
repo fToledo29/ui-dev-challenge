@@ -1,8 +1,10 @@
-import timersReducer from './timers.js';
+import timersReducer from './timers';
 import { combineReducers } from 'redux';
+import navReducer from './nav';
 
 const allReducers = combineReducers({
-	timer: timersReducer
+	timer: timersReducer,
+	nav: navReducer
 });
 
 

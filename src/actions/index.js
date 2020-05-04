@@ -12,3 +12,15 @@ export const timers = () => {
 		oprion: shared.TIMER_OPTIONS 
 	}
 }
+
+export const  menuOpen = () => {
+	return {
+		type: shared.MENU_OPEN
+	}
+}
+
+export const  menuClose = () => {
+	return {
+		type: shared.MENU_CLOSE
+	}
+}

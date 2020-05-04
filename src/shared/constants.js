@@ -7,23 +7,16 @@ export const mainGreyColor = '#C9C9C9';
 export const TIMERS = 'TIMERS';
 export const SEARCH = 'SEARCH';
 export const TIMER_OPTIONS = 'TIMER_OPTIONS';
+export const MENU_OPEN = 'MENU_OPEN';
+export const MENU_CLOSE = 'MENU_CLOSE';
+
+// Label's constants
+export const OPEN = 'Opened';
+export const CLOSE = 'Close';
+
 
 /**
- * Sets main theme
- */
-export const THEME = createMuiTheme({
-	palette: {
-		primary: {
-      	main: mainBlueColor,
-   	 },
-    	secondary: {
-      	main: "#0089CF",
-    	}
-	}
-});
-
-/**
- * Customized styles.
+ * Customized main styles.
  */
 export const USESTYLES = {
 	blueLabel: mainBlueColor,
@@ -33,5 +26,19 @@ export const USESTYLES = {
 	textTransform: 'none',
 	aquaColor: '#10a5aa',
 	whiteColor: '#fff'
-		// backgroundColor: mainBlueColor,
+	// backgroundColor: mainBlueColor,
 };
+
+// /**
+//  * Sets main theme
+//  */
+// export const THEME = createMuiTheme({
+// 	palette: {
+// 		primary: {
+//       	main: mainBlueColor,
+//    	 },
+//     	secondary: {
+//       	main: "#0089CF",
+//     	}
+// 	}
+// });

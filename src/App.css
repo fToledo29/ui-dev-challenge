@@ -38,6 +38,16 @@
 }
 
 /* *** Main styles *** */
+.appbar-section_close {
+	width: 5vw;
+	overflow: hidden;
+	transition: ease-in .5s all;
+}
+
+.appbar-section_open {
+	width: 12rem;
+	transition: ease-in .5s all;
+}
 
 .app-container {
 	display: flex;
@@ -49,10 +59,7 @@
 	overflow: auto;
 }
 
-.appbar-section_open {
-	width: 15%;
-}
-
 #root {
 	height: 100%;
 }
+

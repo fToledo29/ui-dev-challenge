@@ -8,6 +8,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PersonIcon from '@material-ui/icons/Person';
 import MarkunreadIcon from '@material-ui/icons/Markunread';
 
+// Redux
+import {  useSelector, useDispatch }  from 'react-redux';
+
+// Utils
+import * as shared from '../../../shared/constants';
+
+
 
 const useStyles = makeStyles((theme) => ({
 	list: {
@@ -21,13 +28,24 @@ const useStyles = makeStyles((theme) => ({
 		width: '100%',
 		marginLeft: 0,
 		justifyContent: 'left',
-		paddingLeft: '1.3rem',
+		paddingLeft: '0',
+		overflow: 'hidden',
 		"&:hover": {
 			backgroundColor: "transparent"
-		  }
+		}
 	},
 	span: {
-		marginRight: '1.2rem',
+		zIndex: 5,
+		width: "65px",
+		backgroundColor: '#DFE2EE',
+		borderRadius: '1%'
+
+	},
+	sectionName: {
+		width: '7rem',
+		position: 'absolute',
+		right: '0',
+		display: 'flex'
 
 	}
 	
@@ -35,10 +53,18 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function ButtonAppBar() {
-  const classes = useStyles();
+
+	const classes = useStyles();
+
+	const options = useSelector(state => state.nav);
+
+	const getClass = () => {
+		return options.menuStatus === shared.CLOSE ? 'side-menu_close' : 'side-menu_open';
+	}
 
   return (
-    <div className='side-menu_open'>
+	//   </div>
+	<div className={getClass()}>
 		<ul>
 			<li className="side-menu-logo">
 				Virginia Premier
@@ -52,7 +78,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<PersonIcon />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Dashboard
 					</span>
 				</IconButton>
@@ -66,7 +92,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<FontAwesomeIcon icon={faUsers} />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Application
 					</span>
 				</IconButton>
@@ -80,7 +106,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<MarkunreadIcon />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Member
 					</span>
 				</IconButton>
@@ -94,7 +120,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<FontAwesomeIcon icon={faEnvelopeOpen} />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Letter Request
 					</span>
 				</IconButton>
@@ -108,7 +134,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<FontAwesomeIcon icon={faCalculator} />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Letter Review
 					</span>
 				</IconButton>
@@ -122,7 +148,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<WatchLaterIcon />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Billing
 					</span>
 				</IconButton>
@@ -136,7 +162,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<FontAwesomeIcon icon={faUserTag} />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Timers
 					</span>
 				</IconButton>
@@ -150,7 +176,7 @@ export default function ButtonAppBar() {
 					<span className={classes.span}>
 						<FontAwesomeIcon icon={faSitemap} />
 					</span>
-					<span>
+					<span className={classes.sectionName}>
 						Security Roles
 					</span>
 				</IconButton>
