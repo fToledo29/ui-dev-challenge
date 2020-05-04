@@ -10,142 +10,87 @@ import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePaginationActions from './table-pagination-actions/table-pagination-actions.component';
+import dataJSON from '../../../../assets/data/timers.json';  //'../../../../assets/data/timers.json';
 
 
 // Utils
 import * as shared from '../../../../shared/constants';
 
-// const StyledTableCell = withStyles((theme) => ({
-//   head: {
-//     backgroundColor: theme.palette.common.black,
-//     color: theme.palette.common.white,
-//   },
-//   body: {
-//     fontSize: 14,
-//   },
-// }))(TableCell);
+// function createData(name, code, population, size) {
+	// 	const density = population / size;
+	// 	return { name, code, population, size, density };
+	//   }
+	
+	console.log('dataJSON leaded: ', dataJSON);
 
-// const StyledTableRow = withStyles((theme) => ({
-//   root: {
-//     '&:nth-of-type(odd)': {
-//       backgroundColor: theme.palette.background.default,
-//     },
-//   },
-// }))(TableRow);
+	const columns = [
+		{ 
+			id: shared.COLUMN_TIMER_TYPE, 
+			label: shared.TIMER_TYPE, 
+			minWidth: 190 
+		},
+		{ 
+			id: shared.COLUMN_ID, 
+			label: shared.ID, 
+			// minWidth: 50 
+		},
+		{
+			id: shared.COLUMN_STATUS,
+			label: shared.STATUS,
+			minWidth: 100,
+			align: 'right',
+			// format: (value) => value.toLocaleString('en-US'),
+		},
+		
+		{
+			id: shared.COLUMN_CREATION_TIME,
+			label: shared.CREATION_TIME,
+			minWidth: 270,
+			align: 'right',
+			// format: (value) => value.toLocaleString('en-US'),
+		},
+		{
+			id: shared.COLUMN_TRIGSOURCE,
+			label: shared.TRIGSOURCE,
+			// minWidth: 170,
+			align: 'left',
+			// format: (value) => value.toFixed(2),
+		},
+		{
+			id: shared.COLUMN_ACTIVATION_DATE,
+			label: shared.ACTIVATION_DATE,
+			minWidth: 170,
+			align: 'right',
+			// format: (value) => value.toFixed(2),
+		},
+		// {
+		// 	id: shared.COLUMN_TIMER_TERMINATION,
+		// 	label: shared.TIMER_TERMINATION,
+		// 	minWidth: 130,
+		// 	align: 'right',
+		// 	// format: (value) => value.toFixed(2),
+		// },
+  	];
 
-function createData(name, code, population, size) {
-	const density = population / size;
-	return { name, code, population, size, density };
-  }
+	const rows = dataJSON;
 
-const columns = [
-	{ id: 'name', label: 'Name', minWidth: 170 },
-	{ id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-	{
-	  id: 'population',
-	  label: 'Population',
-	  minWidth: 170,
-	  align: 'right',
-	  format: (value) => value.toLocaleString('en-US'),
-	},
-	{
-	  id: 'size',
-	  label: 'Size\u00a0(km\u00b2)',
-	  minWidth: 170,
-	  align: 'right',
-	  format: (value) => value.toLocaleString('en-US'),
-	},
-	{
-	  id: 'density',
-	  label: 'Density',
-	  minWidth: 170,
-	  align: 'right',
-	  format: (value) => value.toFixed(2),
-	},
-  ];
+	console.log('Mock Data: ', rows);
 
-  const rows = [
-	createData('India', 'IN', 1324171354, 3287263),
-	createData('China', 'CN', 1403500365, 9596961),
-	createData('Italy', 'IT', 60483973, 301340),
-	createData('United States', 'US', 327167434, 9833520),
-	createData('Canada', 'CA', 37602103, 9984670),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('France', 'FR', 67022000, 640679),
-	createData('United Kingdom', 'GB', 67545757, 242495),
-	createData('Russia', 'RU', 146793744, 17098246),
-	createData('Nigeria', 'NG', 200962417, 923768),
-	createData('Brazil', 'BR', 210147125, 8515767),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-	createData('Australia', 'AU', 25475400, 7692024),
-	createData('Germany', 'DE', 83019200, 357578),
-	createData('Ireland', 'IE', 4857000, 70273),
-	createData('Mexico', 'MX', 126577691, 1972550),
-	createData('Japan', 'JP', 126317000, 377973),
-  ];
-
-
-const useStyles = makeStyles({
-	// table: {
-	// 	minWidth: 500,
-	//   },
-  table: {
-	minWidth: 700
-	// backgroundColor: shared.USESTYLES.grayBackground,
-  },
-  backgroundHeader: {
-	backgroundColor: shared.mainBlueColor,
-	color: shared.USESTYLES.whiteColor
-  },
-  paginator: {
-	color: shared.USESTYLES.whiteColor,
-	backgroundColor: shared.mainBlueColor,
-	// minHeight: '10px',
-	// height: '22px;'
-  },
-  footer: {
-	// minHeight: '10px',
-	// height: '21px;'
-  },
-});
+	const useStyles = makeStyles({
+		table: {
+			minWidth: 700
+		},
+		backgroundHeader: {
+			backgroundColor: shared.mainBlueColor,
+			color: shared.USESTYLES.whiteColor
+		},
+		paginator: {
+			color: shared.USESTYLES.whiteColor,
+			backgroundColor: shared.mainBlueColor,
+		},
+		footer: {
+		},
+	});
 
 export default function SearchResult() {
 
@@ -206,7 +151,7 @@ export default function SearchResult() {
 			  <TablePagination
 				className={classes.paginator}
 				rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-				colSpan={5}
+				colSpan={7}
 				count={rows.length}
 				rowsPerPage={rowsPerPage}
 				page={page}

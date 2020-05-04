@@ -7,9 +7,15 @@ import { faCalculator, faUsers, faEnvelopeOpen, faUserTag, faSitemap } from '@fo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PersonIcon from '@material-ui/icons/Person';
 import MarkunreadIcon from '@material-ui/icons/Markunread';
+import wiproLogo from '../../../assets/images/Wipro_Logo_New.svg';
+import DashboardIcon from '@material-ui/icons/Dashboard';
 
 // Redux
 import {  useSelector, useDispatch }  from 'react-redux';
+import { timers, search } from '../../../actions';
+
+
+
 
 // Utils
 import * as shared from '../../../shared/constants';
@@ -58,16 +64,23 @@ export default function ButtonAppBar() {
 
 	const options = useSelector(state => state.nav);
 
+	const dispatch = useDispatch();
+
+	// dispatch(search());
+
+	console.log('Options: ', options);
+
+
 	const getClass = () => {
-		return options.menuStatus === shared.CLOSE ? 'side-menu_close' : 'side-menu_open';
+		return options.menuStatus === shared.LABEL_CLOSE ? 'side-menu_close' : 'side-menu_open';
 	}
 
   return (
-	//   </div>
 	<div className={getClass()}>
-		<ul>
+		<ul className="list-menu">
 			<li className="side-menu-logo">
-				Virginia Premier
+				{/* Virginia Premier */}
+				<img alt="Wipro" src={wiproLogo} />	
 			</li>
 			<li>
 				<IconButton
@@ -76,7 +89,7 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">		
 					<span className={classes.span}>
-						<PersonIcon />
+						<DashboardIcon />
 					</span>
 					<span className={classes.sectionName}>
 						Dashboard
@@ -88,9 +101,9 @@ export default function ButtonAppBar() {
 				className={classes.menuButton}
 				edge="start"
 				color="inherit"
-				aria-label="menu">
+				aria-label="menu">		
 					<span className={classes.span}>
-						<FontAwesomeIcon icon={faUsers} />
+						<PersonIcon />
 					</span>
 					<span className={classes.sectionName}>
 						Application
@@ -104,7 +117,7 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<MarkunreadIcon />
+						<FontAwesomeIcon icon={faUsers} />
 					</span>
 					<span className={classes.sectionName}>
 						Member
@@ -118,7 +131,7 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<FontAwesomeIcon icon={faEnvelopeOpen} />
+						<MarkunreadIcon />
 					</span>
 					<span className={classes.sectionName}>
 						Letter Request
@@ -132,7 +145,7 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<FontAwesomeIcon icon={faCalculator} />
+						<FontAwesomeIcon icon={faEnvelopeOpen} />
 					</span>
 					<span className={classes.sectionName}>
 						Letter Review
@@ -146,21 +159,22 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<WatchLaterIcon />
+						<FontAwesomeIcon icon={faCalculator} />
 					</span>
 					<span className={classes.sectionName}>
 						Billing
 					</span>
 				</IconButton>
 			</li>
-			<li>
+			<li className="button-selected">
 				<IconButton
 				className={classes.menuButton}
+				onClick={() => dispatch(search())}
 				edge="start"
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<FontAwesomeIcon icon={faUserTag} />
+						<WatchLaterIcon />
 					</span>
 					<span className={classes.sectionName}>
 						Timers
@@ -174,10 +188,24 @@ export default function ButtonAppBar() {
 				color="inherit"
 				aria-label="menu">
 					<span className={classes.span}>
-						<FontAwesomeIcon icon={faSitemap} />
+						<FontAwesomeIcon icon={faUserTag} />
 					</span>
 					<span className={classes.sectionName}>
 						Security Roles
+					</span>
+				</IconButton>
+			</li>
+			<li>
+				<IconButton
+				className={classes.menuButton}
+				edge="start"
+				color="inherit"
+				aria-label="menu">
+					<span className={classes.span}>
+						<FontAwesomeIcon icon={faSitemap} />
+					</span>
+					<span className={classes.sectionName}>
+						Workflow
 					</span>
 				</IconButton>
 			</li>

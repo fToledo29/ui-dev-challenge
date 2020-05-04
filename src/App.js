@@ -18,7 +18,7 @@ function App() {
 	const options = useSelector(state => state.nav);
 
 	const getClass = () => {
-		return options.menuStatus === shared.CLOSE ? 'appbar-section_close' : 'appbar-section_open';
+		return options.menuStatus === shared.LABEL_CLOSE ? 'appbar-section_close' : 'appbar-section_open';
 	}
 
   return (

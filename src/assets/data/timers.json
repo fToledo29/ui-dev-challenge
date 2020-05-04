@@ -1,0 +1,58 @@
+[
+	{
+		"id": 1,
+		"timerType": "TFI to generate an enroll txn",
+		"status": "active",
+		"creationTime": "2020-04-03 18:09:26:000490",
+		"trigSource": "A",
+		"activationDate": "06/02/2020"
+	},
+	{
+		"id": 1,
+		"timerType": "Cupidatat tempor quis voluptate labore voluptate.",
+		"status": "inavtive",
+		"creationTime": "2010-04-03 18:09:26:000490",
+		"trigSource": "A",
+		"activationDate": "02/16/2019"
+	},
+	{
+		"id": 1,
+		"timerType": "Dolor veniam incididunt esse.",
+		"status": "active",
+		"creationTime": "2020-04-03 18:09:26:000490",
+		"trigSource": "B",
+		"activationDate": "08/01/2020"
+	},
+	{
+		"id": 1,
+		"timerType": "Enim mollit aute cillum eu labore.",
+		"status": "inactive",
+		"creationTime": "2020-04-03 18:09:26:000490",
+		"trigSource": "A",
+		"activationDate": "11/06/2020"
+	},
+	{
+		"id": 1,
+		"timerType": "Dolore officia cillum dolore irure.",
+		"status": "active",
+		"creationTime": "2020-04-03 18:09:26:000490",
+		"trigSource": "B",
+		"activationDate": "02/11/2018"
+	},
+	{
+		"id": 1,
+		"timerType": "Id laborum labore consectetur  dolor amet irure.",
+		"status": "inactive",
+		"creationTime": "2020-04-03 18:09:26:000490",
+		"trigSource": "A",
+		"activationDate": "05/20/2019"
+	},
+	{
+		"id": 1,
+		"timerType": "Mollit eulabore mollit minim officia labore.",
+		"status": "inactive",
+		"creationTime": "2017-05-03 18:09:26:000490",
+		"trigSource": "B",
+		"activationDate": "08/11/2019"
+	}
+]

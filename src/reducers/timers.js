@@ -1,11 +1,16 @@
-// const SEARCH = 'SEARCH';
 
 import * as shared from '../shared/constants';
 
 const timersReducer = (state = {}, action) => {
 	switch (action.type) {
 		case shared.SEARCH:
-			return Object.assign({}, state, { timers:  'Search' })
+			return Object.assign(
+				{},
+				state, 
+				{ 
+					timersSection:  shared.LABEL_SEARCH 
+				}
+			);
 		default:
 			return state;
 	}

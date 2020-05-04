@@ -17,7 +17,6 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import PersonIcon from '@material-ui/icons/Person';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-// import TemporaryDrawer from '../nav/drawer.component/drawer.component';
 
 // Redux
 import {  useSelector, useDispatch }  from 'react-redux';
@@ -61,7 +60,7 @@ export default function Navbar() {
 	const dispatch = useDispatch();
 
 	const onToggleMenu = () => {
-		if(options.menuStatus === shared.CLOSE) {
+		if(options.menuStatus === shared.LABEL_CLOSE) {
 			dispatch(menuOpen());			
 		} else {
 			dispatch(menuClose());			
@@ -80,9 +79,7 @@ export default function Navbar() {
 
 				<AppBar position="static" className={classes.appBar}>
 					<Toolbar>
-					{/* <TemporaryDrawer></TemporaryDrawer> */}
 					<IconButton
-					// onClick={toggleDrawer(anchor, true)}
 					onClick={() => onToggleMenu()}
 					edge="start"
 					className={classes.menuButton}

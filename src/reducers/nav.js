@@ -7,7 +7,7 @@ const navReducer = (state = {}, action) => {
 					{},
 					state,
 					{ 
-						menuStatus: shared.CLOSE
+						menuStatus: shared.LABEL_CLOSE
 					}
 				);
 		case shared.MENU_OPEN:
@@ -15,7 +15,7 @@ const navReducer = (state = {}, action) => {
 					{}, 
 					state, 
 					{
-						menuStatus: shared.OPEN
+						menuStatus: shared.LABEL_OPEN
 					}
 				);
 		default:
