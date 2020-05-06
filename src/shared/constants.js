@@ -9,6 +9,7 @@ export const MENU_OPEN = 'MENU_OPEN';
 export const MENU_CLOSE = 'MENU_CLOSE';
 
 // Label constants
+export const LABEL_ROUTE_TIMETS = 'timers';
 export const LABEL_OPEN = 'Opened';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_SEARCH = 'Search';

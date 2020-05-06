@@ -1,15 +1,17 @@
 import * as shared from '../shared/constants';
 
 export const search = () => {
+	console.log('menu route: ', shared.LABEL_SEARCH);
 	return {
-		type: shared.SEARCH
+		type: shared.SEARCH,
+		payload: shared.LABEL_SEARCH
 	};
 };
 
 export const timers = () => {
 	return {
 		type: shared.TIMERS,
-		oprion: shared.TIMER_OPTIONS 
+		payload: shared.TIMER_OPTIONS 
 	}
 }
 
@@ -23,4 +25,12 @@ export const  menuClose = () => {
 	return {
 		type: shared.MENU_CLOSE
 	}
+}
+
+export const menuOption = (route) => {
+	console.log('menu route: ', route);
+	return {
+		type: shared.TIMERS,
+		payload: route
+	};
 }

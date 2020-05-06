@@ -57,9 +57,14 @@
 .body-section {
 	flex: 1;
 	overflow: auto;
+	display: flex;
 }
 
 #root {
 	height: 100%;
+}
+
+.app-route-section {
+	flex: 1 1;
 }
 

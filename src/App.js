@@ -23,15 +23,18 @@ function App() {
 
   return (
     <div className="app-container">
-		<div className={getClass()} >
-	  		<ButtonAppBar />
-		</div>
 		<div className="body-section">
-			<Navbar/>
 			<Router>
+				<div className={getClass()} >
+					<ButtonAppBar />
+				</div>
+				<div className="app-route-section">
+				<Navbar/>
 				<Switch>
-				<Route path="/" component={Timers} />
+					<Route path="/" exact />
+					<Route path="/timers" component={Timers} />
 				</Switch>
+				</div>
 			</Router>
 		</div>
     </div>

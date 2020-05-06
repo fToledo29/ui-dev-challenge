@@ -33,29 +33,15 @@ div[class*='side-menu'] ul li:not(.side-menu-logo) {
 	display: flex;
 }
 
-/* .list-menu .button-selected {
-	background-color: #a3d1d3cc;
-	height: 100%;
-	width: 100%;
-	margin-left: 0;
-	justify-content: left;
-	padding-left: 0;
-	overflow: hidden;
-} */
-
 .button-selected:hover {
 	background-color: "transparent"
 }
 
-/* 
-.button-selected .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-edgeStart {
-	background-color: #a3d1d3cc;
-	border-radius: inherit;
-  }
-  .button-selected .MuiIconButton-label  span{
-	background-color: #a3d1d3cc;;
-  } */
-
+.button-link {
+	width: 100%;
+	padding: 5px 10px;
+	color: #000;
+}
 
 div[class*='side-menu'] ul li:not(.side-menu-logo):hover {
 	background-color: rgba(0, 0, 0, 0.04);
@@ -64,7 +50,6 @@ div[class*='side-menu'] ul li:not(.side-menu-logo):hover {
 
 div[class*='side-menu_open'] ul li:not(.side-menu-logo):hover span {
 	background-color: transparent;
-	/* border-radius: 5%; */
 }
 
 div[class*='side-menu'] ul li span:nth-child(2) {

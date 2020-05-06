@@ -75,7 +75,6 @@ export default function Navbar() {
 	return (
 			
 		<div className="nav-container">
-			
 
 				<AppBar position="static" className={classes.appBar}>
 					<Toolbar>
@@ -105,8 +104,7 @@ export default function Navbar() {
 							<ExitToAppIcon/>
 						</Button>
 					</Toolbar>
-				</AppBar>	
-			{/* </ThemeProvider> */}
+				</AppBar>
 		</div>
 	);
 }

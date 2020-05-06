@@ -53,7 +53,9 @@ const useStyles = makeStyles((theme) => ({
  */
 export default function Timers() {
 
-	const option = useSelector(state => state.timer);
+	const option = useSelector(state => state.timers);
+
+	console.log('Options: ', option);
 
     const classes = useStyles();
 
@@ -63,8 +65,8 @@ export default function Timers() {
                     <Toolbar className={classes.greyBackground}>
                         <Typography variant="h6" className={classes.blueLabel}>
 							<RemoveCircleIcon className={classes.aquaColor} /> 
-							{/* {option.timersSection} */}
-							Search
+							{option.timersSection}
+							{/* Search */}
                         </Typography>
                     </Toolbar>
                 </AppBar>
