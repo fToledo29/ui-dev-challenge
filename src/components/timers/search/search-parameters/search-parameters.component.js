@@ -7,6 +7,17 @@ import * as selectConfig from './config-select';
 import InputLabel from '@material-ui/core/InputLabel';
 import { EventChange }  from '../../../../classes/events';
 
+// Redux
+import {  useSelector, useDispatch }  from 'react-redux';
+import { 
+	selectSource,
+	enterPrimaryID,
+	selectTriggerStatus,
+	selectTriggerType,
+	onSearch
+} from '../../../../actions';
+
+
 // Styles
 import "./search-parameters.component.css";
 
@@ -48,6 +59,39 @@ export default function SearchParameters() {
 
 	const onTriggerType = new EventChange();
 
+
+	  const [state, setState] = React.useState({
+		name: ''
+	  });
+	
+	  const handleChange = (event) => {
+		const name = event.target.name;
+		setState({
+		  ...state,
+		  [name]: event.target.value,
+		});
+	  };
+
+	  
+	const option = useSelector(state => state.timers);
+
+	const dispatch = useDispatch();
+
+	// const handleChange = (event) => {
+	// 	console.log('Event triggered: ', event);
+	// 	dispatch(selectSource());
+	// }
+
+	const getInitialState = () => {
+		return {
+			value: 'select'
+		}
+	}
+
+	const change = (event) => {
+		setState({value: event.target.value});
+	}
+
   return (
 	<div>
 	  <form className={classes.root} noValidate autoComplete="off">
@@ -59,7 +103,7 @@ export default function SearchParameters() {
 		  	
 				<NativeSelect
 				id="select-source"
-				value={onSource.value}
+				value={option.searchParameters}
 				onChange={onSource.onEvent}
 				input={<BootstrapInput10Rem />}>
 					<option value="" disabled>

@@ -28,9 +28,43 @@ export const  menuClose = () => {
 }
 
 export const menuOption = (route) => {
-	console.log('menu route: ', route);
 	return {
 		type: shared.TIMERS,
 		payload: route
 	};
+}
+
+export const selectSource = (source) => {
+	return {
+		type: shared.SOURCE_PARAMETER,
+		payload: source
+	}
+}
+
+export const enterPrimaryID = (primaryID) => {
+	return {
+		type: shared.PRIMARY_ID_PARAMETER,
+		payload: primaryID
+	}
+}
+
+export const selectTriggerStatus = (triggerStatus) => {
+	return {
+		type: shared.TRIGGER_STATUS_PARAMETER,
+		payload: triggerStatus
+	}
+}
+
+export const selectTriggerType = (triggerType) => {
+	return { 
+		type: shared.TRIGGER_TYPE_PARAMETER,
+		payload: triggerType
+	}
+}
+
+export const onSearch = (parameters) => {
+	return {
+		type: shared.SEARCH,
+		payload: parameters
+	}
 }

@@ -1,19 +1,22 @@
 export const mainBlueColor = '#22396E';
 export const mainGreyColor = '#C9C9C9';
 
-// For actions
+// Actions Types
 export const TIMERS = 'TIMERS';
 export const SEARCH = 'SEARCH';
 export const TIMER_OPTIONS = 'TIMER_OPTIONS';
 export const MENU_OPEN = 'MENU_OPEN';
 export const MENU_CLOSE = 'MENU_CLOSE';
+export const SOURCE_PARAMETER = 'SOURCE_PARAMETER';
+export const PRIMARY_ID_PARAMETER = 'PRIMARY_ID_PARAMETER';
+export const TRIGGER_STATUS_PARAMETER = 'TRIGGER_STATUS_PARAMETER';
+export const TRIGGER_TYPE_PARAMETER = 'TRIGGER_TYPE_PARAMETER';
 
 // Label constants
 export const LABEL_ROUTE_TIMETS = 'timers';
 export const LABEL_OPEN = 'Opened';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_SEARCH = 'Search';
-
 
 // Column Names
 export const TIMER_TYPE = 'Timer Type';

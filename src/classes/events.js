@@ -1,18 +1,57 @@
 import React from 'react';
+// Redux
+import {  useSelector, useDispatch }  from 'react-redux';
+import { 
+	selectSource,
+	enterPrimaryID,
+	selectTriggerStatus,
+	selectTriggerType,
+	onSearch
+} from '../actions';
+
+// Utils
+import * as shared from "../shared/constants";
 
 export class EventChange {
 
-	value;
+	state;
 
-	setValue;
+	setState;
+
+	
+	options = useSelector(state => state.timers);
+
+	dispatch = useDispatch();
+
 
 	constructor() {
-		const [triggerStatus, setTriggerStatus] = React.useState("");
-		this.value = triggerStatus; 
-		this.setValue = setTriggerStatus;
+		// const [triggerStatus, setTriggerStatus] = React.useState("");
+		// this.value = triggerStatus; 
+		// this.setValue = setTriggerStatus;
+
+		const [state, setState] = React.useState({
+			age: '',
+			name: 'hai'
+		  });
+
+		  this.state = state; 
+		this.setState = setState;
 	}
 		
 	onEvent = (event) => {
-		this.setValue(event.target.value);
+
+		const name = event.target.name;
+		this.setState({
+		  ...this.state,
+		  [name]: event.target.value,
+		});
+
+		console.log('Event fired: ', event);
+
+		console.log('Options: ', this.options);
+
+		this.dispatch(selectSource('Application'));
+
+		this.setState(event.target.value);
 	}
 }

@@ -13,6 +13,26 @@ function timersReducer (state = initalState, action) {
 				...state, 
 				timersSection:  action.payload 
 			};
+		case shared.SOURCE_PARAMETER: 
+			return {
+				...state,
+				searchParameters: [...state.searchParameters, action.payload]
+			};
+		case shared.PRIMARY_ID_PARAMETER: 
+			return {
+				...state,
+				searchParameters: [...state.searchParameters, action.payload]
+			};
+		case shared.TRIGGER_STATUS_PARAMETER: 
+			return {
+				...state,
+				searchParameters: [...state.searchParameters, action.payload]
+			};
+		case shared.TRIGGER_TYPE_PARAMETER: 
+			return {
+				...state,
+				searchParameters: [...state.searchParameters, action.payload]
+			};
 		default:
 			return state;
 	}
