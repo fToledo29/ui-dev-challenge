@@ -3,12 +3,12 @@ import * as shared from '../shared/constants';
 
 const initalState = {
 	timersSection: '',
-	searchParameters: []
+	searchParameters: {}
 }
 
 function timersReducer (state = initalState, action) {
 	switch (action.type) {
-		case shared.SEARCH:
+		case shared.SEARCH_SECTION:
 			return {
 				...state, 
 				timersSection:  action.payload 
@@ -16,23 +16,43 @@ function timersReducer (state = initalState, action) {
 		case shared.SOURCE_PARAMETER: 
 			return {
 				...state,
-				searchParameters: [...state.searchParameters, action.payload]
+				searchParameters: {
+						...state.searchParameters,
+						source: action.payload
+					}
 			};
 		case shared.PRIMARY_ID_PARAMETER: 
 			return {
 				...state,
-				searchParameters: [...state.searchParameters, action.payload]
+				searchParameters: {
+					...state.searchParameters,
+					primaryId: action.payload
+				}
 			};
 		case shared.TRIGGER_STATUS_PARAMETER: 
 			return {
 				...state,
-				searchParameters: [...state.searchParameters, action.payload]
+				searchParameters: {
+					...state.searchParameters,
+					triggerStatus: action.payload
+				}
 			};
 		case shared.TRIGGER_TYPE_PARAMETER: 
 			return {
 				...state,
-				searchParameters: [...state.searchParameters, action.payload]
+				searchParameters: {
+					...state.searchParameters,
+					triggerType: action.payload
+				}
 			};
+		case shared.ON_SEARCH:
+			return {
+				...state,
+				searchParameters: [
+					...state.searchParameters,
+					action.payload
+				]
+			}
 		default:
 			return state;
 	}

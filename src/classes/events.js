@@ -46,7 +46,7 @@ export class EventChange {
 		  [name]: event.target.value,
 		});
 
-		console.log('Event fired: ', event);
+		console.log('Event fired: ', event.target.value);
 
 		console.log('Options: ', this.options);
 

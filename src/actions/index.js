@@ -1,9 +1,8 @@
 import * as shared from '../shared/constants';
 
 export const search = () => {
-	console.log('menu route: ', shared.LABEL_SEARCH);
 	return {
-		type: shared.SEARCH,
+		type: shared.SEARCH_SECTION,
 		payload: shared.LABEL_SEARCH
 	};
 };
@@ -64,7 +63,7 @@ export const selectTriggerType = (triggerType) => {
 
 export const onSearch = (parameters) => {
 	return {
-		type: shared.SEARCH,
+		type: shared.ON_SEARCH,
 		payload: parameters
 	}
 }

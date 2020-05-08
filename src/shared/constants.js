@@ -3,7 +3,8 @@ export const mainGreyColor = '#C9C9C9';
 
 // Actions Types
 export const TIMERS = 'TIMERS';
-export const SEARCH = 'SEARCH';
+export const SEARCH_SECTION = 'SEARCH_SECTION';
+export const ON_SEARCH = 'ON_SEARCH'
 export const TIMER_OPTIONS = 'TIMER_OPTIONS';
 export const MENU_OPEN = 'MENU_OPEN';
 export const MENU_CLOSE = 'MENU_CLOSE';

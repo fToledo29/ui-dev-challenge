@@ -22,8 +22,8 @@ import {
 import "./search-parameters.component.css";
 
 // Utils
-import * as shared from "../../../../shared/constants";
-
+import * as shared from '../../../../shared/constants';
+import * as options from '../../../../shared/options'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,121 +60,110 @@ export default function SearchParameters() {
 	const onTriggerType = new EventChange();
 
 
-	  const [state, setState] = React.useState({
-		name: ''
-	  });
+	const state = useSelector(state => state.timers);
 	
-	  const handleChange = (event) => {
-		const name = event.target.name;
-		setState({
-		  ...state,
-		  [name]: event.target.value,
-		});
-	  };
-
+	const handleSubmit = (event) => {
+		alert('A value was submitted: ' + state.searchParameters);
+		event.preventDefault();
+	  }
 	  
-	const option = useSelector(state => state.timers);
-
 	const dispatch = useDispatch();
 
-	// const handleChange = (event) => {
-	// 	console.log('Event triggered: ', event);
-	// 	dispatch(selectSource());
-	// }
 
-	const getInitialState = () => {
-		return {
-			value: 'select'
-		}
+	const change = (event, action) => {
+		dispatch(action(event.target.value));
+	};
+
+	const getOptions = (data) => {
+		return data.map((item, index) => 
+			<option value={item} key={index}>
+				{item}
+			</option>
+		);
 	}
 
-	const change = (event) => {
-		setState({value: event.target.value});
-	}
 
-  return (
-	<div>
-	  <form className={classes.root} noValidate autoComplete="off">
-		<div className="field-wrapper">
-			
-			<InputLabel className={classes.pos}>Source</InputLabel>
+	return (
+		<div>
+			<form 
+			className={classes.root}
+			noValidate autoComplete="off">
+				<div className="field-wrapper">
+					
+					<InputLabel className={classes.pos}>Source</InputLabel>
 
-			<FormControl className={classes.margin}>
-		  	
-				<NativeSelect
-				id="select-source"
-				value={option.searchParameters}
-				onChange={onSource.onEvent}
-				input={<BootstrapInput10Rem />}>
-					<option value="" disabled>
-						Select...
-					</option>
-					<option value={1}>Application</option>
-					<option value={2}>Member</option>
-				</NativeSelect>
-			</FormControl>
-		
+					<FormControl className={classes.margin}>
+					
+						<NativeSelect
+						id="select-source"
+						value={state.searchParameters.source}
+						onChange={(e) => change(e, selectSource)}
+						input={<BootstrapInput10Rem />}>
+							<option value="" key={0}>
+								Select...
+							</option>
+							{getOptions(options.source)}
+						</NativeSelect>
+					</FormControl>
+				
+				</div>
+				
+
+				<div className="field-wrapper">
+				
+					<InputLabel className={classes.pos}  required>Primary ID</InputLabel>
+					<TextField
+					height="25%"
+					className={classes.backGroundField}
+					id="outlined-basic"
+					label="Primary ID"
+					variant="outlined"
+					size="small"
+					value={state.searchParameters.primaryId || ''}
+					onChange={(e) => change(e, enterPrimaryID)}
+					/>
+
+				</div>
+
+				<div className="field-wrapper">
+					<InputLabel className={classes.pos}>Trigger Status</InputLabel>
+					
+					<FormControl className={classes.margin}>
+						
+						<NativeSelect
+						id="select-trigger"
+						value={state.searchParameters.triggerStatus}
+						onChange={(e) => change(e, selectTriggerStatus)}
+						input={<BootstrapInput10Rem />}>
+							<option value="" key={0}>
+								Select...
+							</option>
+							{getOptions(options.triggerStatus)}
+						</NativeSelect>
+					</FormControl>
+				
+				</div>
+
+				<div className="field-wrapper">
+				
+					<InputLabel className={classes.pos}>Trigger Type</InputLabel>
+					
+					<FormControl className={classes.margin}>
+						
+						<NativeSelect
+						id="demo-customized-select-native"
+						value={state.searchParameters.triggerType}
+						onChange={(e) => change(e, selectTriggerType)}
+						input={<BootstrapInput18Rem />}>
+								<option value="" key={0}>
+								Select...
+							</option>
+							{getOptions(options.triggerType)}
+						</NativeSelect>
+					</FormControl>
+
+				</div>
+			</form>
 		</div>
-		
-
-		<div className="field-wrapper">
-	  
-		  <InputLabel className={classes.pos}  required>Primary ID</InputLabel>
-		  <TextField
-			height="25%"
-			className={classes.backGroundField}
-			id="outlined-basic"
-			label="Primary ID"
-			variant="outlined"
-			size="small"
-		  />
-
-		</div>
-
-		<div className="field-wrapper">
-			<InputLabel className={classes.pos}>Trigger Status</InputLabel>
-		  	
-			<FormControl className={classes.margin}>
-			  
-				<NativeSelect
-				id="select-trigger"
-				value={onTS.value}
-				onChange={onTS.onEvent.bind(this)}
-				input={<BootstrapInput10Rem />}>
-					<option value="" disabled>
-						Select...
-					</option>
-					<option value={1}>All</option>
-					<option value={2}>OPEN</option>
-					<option value={3}>CLOSED</option>
-				</NativeSelect>
-			</FormControl>
-		
-		</div>
-
-		<div className="field-wrapper">
-		
-			<InputLabel className={classes.pos}>Trigger Type</InputLabel>
-		  	
-			<FormControl className={classes.margin}>
-			  
-				<NativeSelect
-				id="demo-customized-select-native"
-				value={onTriggerType.value}
-				onChange={onTriggerType.onEvent}
-				input={<BootstrapInput18Rem />}>
-					<option value="" disabled>
-						Select...
-					</option>
-					<option value={10}>one</option>
-					<option value={20}>two</option>
-					<option value={30}>Three</option>
-					<option value={30}>Four</option>
-				</NativeSelect>
-			</FormControl>
-
-		</div>
-	  </form>
-	</div>
-  );
+	);
 }

@@ -7,6 +7,11 @@ import Button from '@material-ui/core/Button';
 import SearchParameters from './search-parameters/search-parameters.component'
 import SearchResult from './search-result/search-result.component';
 
+// Redux
+import {  useSelector, useDispatch }  from 'react-redux';
+import { 
+	onSearch
+} from '../../../actions';
 
 // Utils
 import * as shared from '../../../shared/constants';
@@ -46,7 +51,15 @@ export default function Search() {
 
 	const [showResults, setShowResults] = React.useState(false);
 
-	const onClick = () => setShowResults(true);
+	const state = useSelector(state => state.timers);
+	
+	  
+	const dispatch = useDispatch();
+
+	const onClick = () => {
+		// dispatch(onSearch(state.searchParameters));
+		setShowResults(true)
+	};
    
    const classes = useStyles();
   
