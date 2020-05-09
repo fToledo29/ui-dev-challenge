@@ -47,10 +47,10 @@ const useStyles = makeStyles({
 		textTransform: shared.USESTYLES.textTransform 
 	}, 
 	card: {
-		height: 'auto',
-		bottom: '-13px',
-		position: 'relative',
-		display: 'flex'
+		// height: 'auto',
+		// bottom: '-13px',
+		// position: 'relative',
+		// display: 'flex'
 	}
 });
 
