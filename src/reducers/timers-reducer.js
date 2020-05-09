@@ -48,10 +48,7 @@ function timersReducer (state = initalState, action) {
 		case shared.ON_SEARCH:
 			return {
 				...state,
-				searchParameters: [
-					...state.searchParameters,
-					action.payload
-				]
+					timersSection: action.payload
 			}
 		default:
 			return state;

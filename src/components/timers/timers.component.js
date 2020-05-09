@@ -66,7 +66,6 @@ export default function Timers() {
                         <Typography variant="h6" className={classes.blueLabel}>
 							<RemoveCircleIcon className={classes.aquaColor} /> 
 							{option.timersSection}
-							{/* Search */}
                         </Typography>
                     </Toolbar>
                 </AppBar>

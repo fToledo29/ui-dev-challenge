@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
 	"& > *": {
 	  margin: theme.spacing(1),
-	  width: "25ch",
+	//   width: "25ch",
+	  width: 'inherit'
 	},
   },
   pos: {
@@ -52,20 +53,8 @@ export default function SearchParameters() {
 	const BootstrapInput18Rem = selectConfig.getBootstrapInput('18rem');
 
 	const BootstrapInput10Rem = selectConfig.getBootstrapInput('10rem');
-		
-	const onSource = new EventChange();
-	
-	const onTS = new EventChange();
-
-	const onTriggerType = new EventChange();
-
 
 	const state = useSelector(state => state.timers);
-	
-	const handleSubmit = (event) => {
-		alert('A value was submitted: ' + state.searchParameters);
-		event.preventDefault();
-	  }
 	  
 	const dispatch = useDispatch();
 

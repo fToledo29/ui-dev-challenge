@@ -61,9 +61,16 @@ export const selectTriggerType = (triggerType) => {
 	}
 }
 
-export const onSearch = (parameters) => {
+export const onSearch = () => {
 	return {
 		type: shared.ON_SEARCH,
-		payload: parameters
+		payload: shared.LABEL_SEARCH_RESULT 
+	}
+}
+
+export const onResult = () => {
+	return {
+		type: shared.SEARCH_RESULT,
+		payload: shared.LABEL_SEARCH_RESULT 
 	}
 }

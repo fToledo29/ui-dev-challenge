@@ -22,6 +22,7 @@ const useStyles = makeStyles({
 	root: {
 		minWidth: 275,
 		backgroundColor: '#ececec'
+
 	},
 	bullet: {
 		display: 'inline-block',
@@ -44,6 +45,12 @@ const useStyles = makeStyles({
 		backgroundColor: shared.USESTYLES.blueBackground,
 		color: shared.USESTYLES.whiteColor,
 		textTransform: shared.USESTYLES.textTransform 
+	}, 
+	card: {
+		height: 'auto',
+		bottom: '-13px',
+		position: 'relative',
+		display: 'flex'
 	}
 });
 
@@ -57,7 +64,7 @@ export default function Search() {
 	const dispatch = useDispatch();
 
 	const onClick = () => {
-		// dispatch(onSearch(state.searchParameters));
+		dispatch(onSearch());
 		setShowResults(true)
 	};
    
@@ -67,24 +74,27 @@ export default function Search() {
       <Card className={classes.root}>
          <CardContent>
            
-			{ !showResults ?  <SearchParameters /> : null }
 
-			{ showResults ?  <SearchResult/> : null }
+			{/* { state.timersSection === shared.LABEL_SEARCH ?  <SearchParameters /> : null } */}
+			<SearchParameters />
+
+			<CardActions className={classes.card}>
+				<Button 
+				onClick={onClick} 
+				variant="contained"
+				className={classes.search} 
+				color="primary">
+					Search
+				</Button>
+				<Button 
+				variant="contained" 
+				className={classes.reset}>
+					Reset
+				</Button>
+			</CardActions>
+			{/* { showResults ?  <SearchResult/> : null } */}
+			{ (state.timersSection === shared.LABEL_SEARCH_RESULT) ?  <SearchResult/> : null }
          </CardContent>
-         <CardActions>
-			<Button 
-			 onClick={onClick} 
-			variant="contained"
-			className={classes.search} 
-			color="primary">
-			 	Search
-			</Button>
-			<Button 
-			variant="contained" 
-			className={classes.reset}>
-				Reset
-			</Button>
-         </CardActions>
       </Card>
    );
 }

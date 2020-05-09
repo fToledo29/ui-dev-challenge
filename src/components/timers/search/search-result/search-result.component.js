@@ -145,7 +145,6 @@ export default function SearchResult() {
             })}
         </TableBody>
 		<TableFooter> 
-		{/* // className={classes.footer}> */}
 			  <TableRow
 			  className={classes.footer}>
 			  <TablePagination
