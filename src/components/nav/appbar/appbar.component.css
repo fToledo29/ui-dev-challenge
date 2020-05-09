@@ -21,12 +21,22 @@ div[class*='side-menu'] ul {
 	margin: 0px;
 }
 
-.side-menu-logo {
+.side-menu_close .side-menu-logo span { 
+	display: none;
+}
+.side-menu_close .side-menu-logo {
 	height: 8vh;
 	background-color: #fff;
 	display: flex;
-	justify-content: center;
+}
+
+.side-menu_open .side-menu-logo {
+	height: 8vh;
+	background-color: #fff;
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
+	padding-right: 14px;
 }
 
 div[class*='side-menu'] ul li:not(.side-menu-logo) {

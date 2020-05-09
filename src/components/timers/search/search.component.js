@@ -56,7 +56,7 @@ const useStyles = makeStyles({
 
 export default function Search() {
 
-	const [showResults, setShowResults] = React.useState(false);
+	// const [setShowResults] = React.useState(false);
 
 	const state = useSelector(state => state.timers);
 	
@@ -65,7 +65,7 @@ export default function Search() {
 
 	const onClick = () => {
 		dispatch(onSearch());
-		setShowResults(true)
+		// setShowResults(true);
 	};
    
    const classes = useStyles();
@@ -92,7 +92,6 @@ export default function Search() {
 					Reset
 				</Button>
 			</CardActions>
-			{/* { showResults ?  <SearchResult/> : null } */}
 			{ (state.timersSection === shared.LABEL_SEARCH_RESULT) ?  <SearchResult/> : null }
          </CardContent>
       </Card>

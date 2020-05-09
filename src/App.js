@@ -13,32 +13,33 @@ import {  useSelector }  from 'react-redux';
 import * as shared from './shared/constants';
 
 
-function App() {
+function App({onChangeOperation}) {
 
-	const state = useSelector(state => state.nav);
+	const navState = useSelector(state => state.nav);
 
 	const getClass = () => {
-		return state.menuStatus === shared.LABEL_CLOSE ? 'appbar-section_close' : 'appbar-section_open';
+		return navState.menuStatus === shared.LABEL_CLOSE ? 'appbar-section_close' : 'appbar-section_open';
 	}
 
-  return (
-    <div className="app-container">
-		<div className="body-section">
-			<Router>
-				<div className={getClass()} >
-					<ButtonAppBar />
-				</div>
-				<div className="app-route-section">
-				<Navbar/>
-				<Switch>
-					<Route path="/" exact />
-					<Route path="/timers" component={Timers} />
-				</Switch>
-				</div>
-			</Router>
+
+	return (
+		<div className="app-container">
+			<div className="body-section">
+				<Router>
+					<div className={getClass()} >
+						<ButtonAppBar onChangeOperation={onChangeOperation} />
+					</div>
+					<div className="app-route-section">
+					<Navbar/>
+					<Switch>
+						<Route path="/" exact />
+						<Route path="/timers" component={Timers} />
+					</Switch>
+					</div>
+				</Router>
+			</div>
 		</div>
-    </div>
-  );
+	);
 }
 
 export default App;

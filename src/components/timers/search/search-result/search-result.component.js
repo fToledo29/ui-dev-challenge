@@ -1,5 +1,6 @@
 import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -16,81 +17,72 @@ import dataJSON from '../../../../assets/data/timers.json';  //'../../../../asse
 // Utils
 import * as shared from '../../../../shared/constants';
 
-// function createData(name, code, population, size) {
-	// 	const density = population / size;
-	// 	return { name, code, population, size, density };
-	//   }
+console.log('dataJSON leaded: ', dataJSON);
+
+const columns = [
+	{ 
+		id: shared.COLUMN_TIMER_TYPE, 
+		label: shared.TIMER_TYPE, 
+		minWidth: 190 
+	},
+	{ 
+		id: shared.COLUMN_ID, 
+		label: shared.ID, 
+	},
+	{
+		id: shared.COLUMN_STATUS,
+		label: shared.STATUS,
+		minWidth: 100,
+		align: 'right',
+	},
 	
-	console.log('dataJSON leaded: ', dataJSON);
+	{
+		id: shared.COLUMN_CREATION_TIME,
+		label: shared.CREATION_TIME,
+		minWidth: 270,
+		align: 'right',
+	},
+	{
+		id: shared.COLUMN_TRIGSOURCE,
+		label: shared.TRIGSOURCE,
+		align: 'left',
+	},
+	{
+		id: shared.COLUMN_ACTIVATION_DATE,
+		label: shared.ACTIVATION_DATE,
+		minWidth: 170,
+		align: 'right',
+	},
+	{
+		id: shared.COLUMN_TIMER_TERMINATION,
+		label: shared.TIMER_TERMINATION,
+		minWidth: 130,
+		align: 'right',
+	},
+];
 
-	const columns = [
-		{ 
-			id: shared.COLUMN_TIMER_TYPE, 
-			label: shared.TIMER_TYPE, 
-			minWidth: 190 
-		},
-		{ 
-			id: shared.COLUMN_ID, 
-			label: shared.ID, 
-			// minWidth: 50 
-		},
-		{
-			id: shared.COLUMN_STATUS,
-			label: shared.STATUS,
-			minWidth: 100,
-			align: 'right',
-			// format: (value) => value.toLocaleString('en-US'),
-		},
-		
-		{
-			id: shared.COLUMN_CREATION_TIME,
-			label: shared.CREATION_TIME,
-			minWidth: 270,
-			align: 'right',
-			// format: (value) => value.toLocaleString('en-US'),
-		},
-		{
-			id: shared.COLUMN_TRIGSOURCE,
-			label: shared.TRIGSOURCE,
-			// minWidth: 170,
-			align: 'left',
-			// format: (value) => value.toFixed(2),
-		},
-		{
-			id: shared.COLUMN_ACTIVATION_DATE,
-			label: shared.ACTIVATION_DATE,
-			minWidth: 170,
-			align: 'right',
-			// format: (value) => value.toFixed(2),
-		},
-		// {
-		// 	id: shared.COLUMN_TIMER_TERMINATION,
-		// 	label: shared.TIMER_TERMINATION,
-		// 	minWidth: 130,
-		// 	align: 'right',
-		// 	// format: (value) => value.toFixed(2),
-		// },
-  	];
+const rows = dataJSON;
 
-	const rows = dataJSON;
-
-	console.log('Mock Data: ', rows);
-
-	const useStyles = makeStyles({
-		table: {
-			minWidth: 700
-		},
-		backgroundHeader: {
-			backgroundColor: shared.mainBlueColor,
-			color: shared.USESTYLES.whiteColor
-		},
-		paginator: {
-			color: shared.USESTYLES.whiteColor,
-			backgroundColor: shared.mainBlueColor,
-		},
-		footer: {
-		},
-	});
+const useStyles = makeStyles({
+	table: {
+		minWidth: 700
+	},
+	backgroundHeader: {
+		backgroundColor: shared.mainBlueColor,
+		color: shared.USESTYLES.whiteColor
+	},
+	paginator: {
+		color: shared.USESTYLES.whiteColor,
+		backgroundColor: shared.mainBlueColor,
+	},
+	footer: {
+	},
+	reset: {
+		backgroundColor: shared.USESTYLES.aquaColor,
+		color: shared.USESTYLES.whiteColor,
+		textTransform: shared.USESTYLES.textTransform 
+	},
+});
 
 export default function SearchResult() {
 
@@ -136,7 +128,14 @@ export default function SearchResult() {
                     const value = row[column.id];
                     return (
                       <TableCell key={column.id} align={column.align}>
-                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                        {/* {column.format && typeof value === 'number' ? column.format(value) : value} */}
+						{column.id === shared.COLUMN_TIMER_TERMINATION ? (
+							<Button 
+							variant="contained" 
+							className={classes.reset}>
+								Edit
+							</Button>
+						) : column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );
                   })}

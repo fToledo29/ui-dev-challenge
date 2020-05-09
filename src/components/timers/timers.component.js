@@ -12,8 +12,8 @@ import { makeStyles } from '@material-ui/core/styles';
 // Utils
 import * as shared from '../../shared/constants'
 
-import {  useSelector, useDispatch }  from 'react-redux';
-// import { timers, search } from '../../actions';
+// Redux
+import {  useSelector }  from 'react-redux';
 
 
 
@@ -54,8 +54,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Timers() {
 
 	const option = useSelector(state => state.timers);
-
-	console.log('Options: ', option);
 
     const classes = useStyles();
 

@@ -5,7 +5,8 @@
 		"status": "active",
 		"creationTime": "2020-04-03 18:09:26:000490",
 		"trigSource": "A",
-		"activationDate": "06/02/2020"
+		"activationDate": "06/02/2020",
+		"code": 1
 	},
 	{
 		"id": 1,
@@ -13,7 +14,8 @@
 		"status": "inavtive",
 		"creationTime": "2010-04-03 18:09:26:000490",
 		"trigSource": "A",
-		"activationDate": "02/16/2019"
+		"activationDate": "02/16/2019",
+		"code": 2
 	},
 	{
 		"id": 1,
@@ -21,7 +23,8 @@
 		"status": "active",
 		"creationTime": "2020-04-03 18:09:26:000490",
 		"trigSource": "B",
-		"activationDate": "08/01/2020"
+		"activationDate": "08/01/2020",
+		"code": 3
 	},
 	{
 		"id": 1,
@@ -29,7 +32,8 @@
 		"status": "inactive",
 		"creationTime": "2020-04-03 18:09:26:000490",
 		"trigSource": "A",
-		"activationDate": "11/06/2020"
+		"activationDate": "11/06/2020",
+		"code": 4
 	},
 	{
 		"id": 1,
@@ -37,7 +41,8 @@
 		"status": "active",
 		"creationTime": "2020-04-03 18:09:26:000490",
 		"trigSource": "B",
-		"activationDate": "02/11/2018"
+		"activationDate": "02/11/2018",
+		"code": 5
 	},
 	{
 		"id": 1,
@@ -45,7 +50,8 @@
 		"status": "inactive",
 		"creationTime": "2020-04-03 18:09:26:000490",
 		"trigSource": "A",
-		"activationDate": "05/20/2019"
+		"activationDate": "05/20/2019",
+		"code": 6
 	},
 	{
 		"id": 1,
@@ -53,6 +59,7 @@
 		"status": "inactive",
 		"creationTime": "2017-05-03 18:09:26:000490",
 		"trigSource": "B",
-		"activationDate": "08/11/2019"
+		"activationDate": "08/11/2019",
+		"code": 7
 	}
 ]

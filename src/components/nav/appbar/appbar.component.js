@@ -15,8 +15,8 @@ import PersonIcon from '@material-ui/icons/Person';
 import MarkunreadIcon from '@material-ui/icons/Markunread';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 // Redux
-import {  useSelector, useDispatch }  from 'react-redux';
-import { timers, search, menuOption } from '../../../actions';
+import { useSelector, useDispatch }  from 'react-redux';
+import { search, menuOption } from '../../../actions';
 // Utils
 import { makeStyles } from '@material-ui/core/styles';
 import * as shared from '../../../shared/constants';
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function ButtonAppBar() {
+export default function ButtonAppBar({onChangeOperation}) {
 
 	const classes = useStyles();
 
@@ -68,11 +68,12 @@ export default function ButtonAppBar() {
 
 	const dispatch = useDispatch();
 
-	console.log('Options: ', options);
+	const onNavigate = action => action();
 
 	const goToTimers = () => {
 		dispatch(menuOption(shared.LABEL_ROUTE_TIMETS));
 		dispatch(search());
+		onChangeOperation(shared.TIMERS_ROUTE);
 	};
 
 
@@ -80,159 +81,161 @@ export default function ButtonAppBar() {
 		return options.menuStatus === shared.LABEL_CLOSE ? 'side-menu_close' : 'side-menu_open';
 	}
 
-  return (
-	<div className={getClass()}>
-		<ul className="list-menu">
-			<li className="side-menu-logo">
-				{/* Virginia Premier */}
-				<img alt="Wipro" src={wiproLogo} />	
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-				<IconButton
-				className={classes.menuButton}
-				edge="start"
-				color="inherit"
-				aria-label="menu">		
-					<span className={classes.span}>
-						<DashboardIcon />
+	return (
+		<div className={getClass()}>
+			<ul className="list-menu">
+				<li className="side-menu-logo">
+					<img alt="Wipro" src={wiproLogo} />	
+					<span>
+						Virginia Premier
 					</span>
-					<span className={classes.sectionName}>
-							Dashboard
-					</span>
-				</IconButton>
-						</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
+				</li>
+				<li>
+					<Link to="/" className="button-link">
 					<IconButton
 					className={classes.menuButton}
 					edge="start"
 					color="inherit"
 					aria-label="menu">		
 						<span className={classes.span}>
-							<PersonIcon />
+							<DashboardIcon />
 						</span>
 						<span className={classes.sectionName}>
-								Application
+								Dashboard
 						</span>
 					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<FontAwesomeIcon icon={faUsers} />
-						</span>
-						<span className={classes.sectionName}>
-								Member
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<MarkunreadIcon />
-						</span>
-						<span className={classes.sectionName}>
-								Letter Request
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<FontAwesomeIcon icon={faEnvelopeOpen} />
-						</span>
-						<span className={classes.sectionName}>
-								Letter Review
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<FontAwesomeIcon icon={faCalculator} />
-						</span>
-						<span className={classes.sectionName}>
-								Billing
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li className="button-selected">
-				<Link to="/timers" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					onClick={() => goToTimers()}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<WatchLaterIcon />
-						</span>
-						<span className={classes.sectionName}>
-								Timers
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<FontAwesomeIcon icon={faUserTag} />
-						</span>
-						<span className={classes.sectionName}>
-								Security Roles
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-			<li>
-				<Link to="/" className="button-link">
-					<IconButton
-					className={classes.menuButton}
-					edge="start"
-					color="inherit"
-					aria-label="menu">
-						<span className={classes.span}>
-							<FontAwesomeIcon icon={faSitemap} />
-						</span>
-						<span className={classes.sectionName}>
-								Workflow
-						</span>
-					</IconButton>
-				</Link>
-			</li>
-		</ul>
-    </div>
-  );
+							</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">		
+							<span className={classes.span}>
+								<PersonIcon />
+							</span>
+							<span className={classes.sectionName}>
+									Application
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<FontAwesomeIcon icon={faUsers} />
+							</span>
+							<span className={classes.sectionName}>
+									Member
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<MarkunreadIcon />
+							</span>
+							<span className={classes.sectionName}>
+									Letter Request
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<FontAwesomeIcon icon={faEnvelopeOpen} />
+							</span>
+							<span className={classes.sectionName}>
+									Letter Review
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<FontAwesomeIcon icon={faCalculator} />
+							</span>
+							<span className={classes.sectionName}>
+									Billing
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li className="button-selected">
+					<Link to="/timers" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						onClick={()=> onNavigate(goToTimers)}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<WatchLaterIcon />
+							</span>
+							<span className={classes.sectionName}>
+									Timers
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<FontAwesomeIcon icon={faUserTag} />
+							</span>
+							<span className={classes.sectionName}>
+									Security Roles
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+				<li>
+					<Link to="/" className="button-link">
+						<IconButton
+						className={classes.menuButton}
+						edge="start"
+						color="inherit"
+						aria-label="menu">
+							<span className={classes.span}>
+								<FontAwesomeIcon icon={faSitemap} />
+							</span>
+							<span className={classes.sectionName}>
+									Workflow
+							</span>
+						</IconButton>
+					</Link>
+				</li>
+			</ul>
+		</div>
+	);
 }

@@ -3,6 +3,7 @@ export const mainGreyColor = '#C9C9C9';
 
 // Actions Types
 export const TIMERS = 'TIMERS';
+export const TIMERS_ROUTING = 'TIMERS_ROUTING';
 export const SEARCH_SECTION = 'SEARCH_SECTION';
 export const ON_SEARCH = 'ON_SEARCH'
 export const TIMER_OPTIONS = 'TIMER_OPTIONS';
@@ -13,6 +14,7 @@ export const PRIMARY_ID_PARAMETER = 'PRIMARY_ID_PARAMETER';
 export const TRIGGER_STATUS_PARAMETER = 'TRIGGER_STATUS_PARAMETER';
 export const TRIGGER_TYPE_PARAMETER = 'TRIGGER_TYPE_PARAMETER';
 export const SEARCH_RESULT = 'SEARCH_RESULT';
+export const SET_OPERATION = 'SET_OPERATION'; 
 
 // Label constants
 export const LABEL_ROUTE_TIMETS = 'timers';
@@ -37,6 +39,10 @@ export const COLUMN_CREATION_TIME = 'creationTime';
 export const COLUMN_TRIGSOURCE = 'trigSource';
 export const COLUMN_ACTIVATION_DATE = 'activationDate';
 export const COLUMN_TIMER_TERMINATION = 'TimerRermination';
+
+//  Routes
+export const TIMERS_ROUTE = 'timers';
+
 
 /**
  * Customized main styles.

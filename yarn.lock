@@ -879,13 +879,6 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@fortawesome/react-native-fontawesome@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@fortawesome/react-native-fontawesome/-/react-native-fontawesome-0.2.4.tgz#94c42f0b2a7aab197b4764cb1db2c14c0bb52262"
-  dependencies:
-    humps "^2.0.1"
-    prop-types "^15.7.2"
-
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -4520,10 +4513,6 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
-humps@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/humps/-/humps-2.0.1.tgz#dd02ea6081bd0568dc5d073184463957ba9ef9aa"
-
 hyphenate-style-name@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.3.tgz#097bb7fa0b8f1a9cf0bd5c734cf95899981a9b48"
@@ -7644,6 +7633,10 @@ react-router-dom@^5.1.2:
     react-router "5.1.2"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
+
+react-router-redux@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
 
 react-router@5.1.2:
   version "5.1.2"

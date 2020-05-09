@@ -71,6 +71,21 @@ export const onSearch = () => {
 export const onResult = () => {
 	return {
 		type: shared.SEARCH_RESULT,
-		payload: shared.LABEL_SEARCH_RESULT 
+		payload: shared.LABEL_SEARCH_RESULT
+	}
+}
+
+export const onRoute = () => {
+	return {
+		type: shared.TIMERS_ROUTING,
+		payload: shared.TIMERS_ROUTE
+
+	};
+}
+
+export const setOperation = (name) => {
+	return {
+		type: shared.SET_OPERATION,
+		name
 	}
 }

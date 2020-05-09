@@ -2,22 +2,14 @@ import React from 'react';
 // Redux
 import {  useSelector, useDispatch }  from 'react-redux';
 import { 
-	selectSource,
-	enterPrimaryID,
-	selectTriggerStatus,
-	selectTriggerType,
-	onSearch
+	selectSource
 } from '../actions';
-
-// Utils
-import * as shared from "../shared/constants";
 
 export class EventChange {
 
 	state;
 
 	setState;
-
 	
 	options = useSelector(state => state.timers);
 
@@ -25,9 +17,6 @@ export class EventChange {
 
 
 	constructor() {
-		// const [triggerStatus, setTriggerStatus] = React.useState("");
-		// this.value = triggerStatus; 
-		// this.setValue = setTriggerStatus;
 
 		const [state, setState] = React.useState({
 			age: '',

@@ -1,35 +1,28 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import * as selectConfig from './config-select';
 import InputLabel from '@material-ui/core/InputLabel';
-import { EventChange }  from '../../../../classes/events';
-
 // Redux
 import {  useSelector, useDispatch }  from 'react-redux';
 import { 
 	selectSource,
 	enterPrimaryID,
 	selectTriggerStatus,
-	selectTriggerType,
-	onSearch
+	selectTriggerType
 } from '../../../../actions';
-
-
-// Styles
-import "./search-parameters.component.css";
-
 // Utils
 import * as shared from '../../../../shared/constants';
 import * as options from '../../../../shared/options'
+// Styles
+import './search-parameters.component.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-	"& > *": {
+	'& > *': {
 	  margin: theme.spacing(1),
-	//   width: "25ch",
 	  width: 'inherit'
 	},
   },
@@ -38,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 	color: shared.USESTYLES.blueLabel,
   },
   backGroundField: {
-	backgroundColor: "#fff",
+	backgroundColor: '#fff',
   },
 }));
 
