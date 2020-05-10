@@ -12,9 +12,11 @@ import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePaginationActions from './table-pagination-actions/table-pagination-actions.component';
-import dataJSON from '../../../../assets/data/timers.json';  //'../../../../assets/data/timers.json';
+import dataJSON from '../../../../assets/data/timers.json';
 import {  useSelector, useDispatch }  from 'react-redux';
 import { editActivationDate, enableActivationDate } from '../../../../actions';
+import DateFnsUtils from '@date-io/date-fns';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 // Utils
 import * as shared from '../../../../shared/constants';
@@ -104,7 +106,13 @@ export default function SearchResult() {
 	
 	const getDynamicField = (value) => value.replace(/ /g, '').replace('.', '');
 
-	const onChangeDate = (e, field) => dispatch(editActivationDate(e.target.value, field));
+	const onChangeDate = (value, field) => {
+		const date = value.getDate();
+		const month = value.getMonth() + 1;
+		const year = value.getFullYear();
+		const enteredDate = month + '/' + date + '/' + year ;
+		dispatch(editActivationDate(enteredDate, field));
+	}
 
 	const handleChangeRowsPerPage = (event) => {
 		setRowsPerPage(+event.target.value);
@@ -113,85 +121,91 @@ export default function SearchResult() {
 
   	const classes = useStyles();
 
-  return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow>
+	return (
+		<TableContainer component={Paper}>
+			<Table className={classes.table} aria-label="customized table">
+				<TableHead>
+				<TableRow>
 
-			{columns.map((column) => (
-                <TableCell
-				className={classes.backgroundHeader}
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
-              ))}
+					{columns.map((column) => (
+						<TableCell
+						className={classes.backgroundHeader}
+						key={column.id}
+						align={column.align}
+						style={{ minWidth: column.minWidth }}
+						>
+						{column.label}
+						</TableCell>
+					))}
 
-          </TableRow>
-        </TableHead>
-        <TableBody>
-		   {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                  {columns.map((column) => {
-					const value = row[column.id];
-					const field = getDynamicField(row.timerType);
-					const disabledProp = field.toString().toString().substr(0, 10);
+				</TableRow>
+				</TableHead>
+				<TableBody>
+				{rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+					return (
+						<TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+						{columns.map((column) => {
+							const value = row[column.id];
+							const field = getDynamicField(row.timerType);
+							const disabledProp = field.toString().toString().substr(0, 10);
 
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-						{column.id === shared.COLUMN_ACTIVATION_DATE ? (
-							<TextField
-							disabled={!state.timerData[disabledProp] || editing}
-							height="25%"
-							id={column.id + row.code}
-							variant="outlined"
-							size="small"
-							value={state.timerData[field] || row.activationDate}
-							onChange={(e) => onChangeDate(e, field)}
-							/>
-						 )
-						: column.id === shared.COLUMN_TIMER_TERMINATION ? (
-							<Button 
-							// dRef[fieldRef]
-							onClick={() => onEdit(disabledProp)}
-							variant="contained" 
-							className={classes.reset}>
-								Edit
-							</Button>
-						) : column.format && typeof value === 'number' ? column.format(value) : value}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              );
-            })}
-        </TableBody>
-		<TableFooter> 
-			  <TableRow
-			  className={classes.footer}>
-			  <TablePagination
-				className={classes.paginator}
-				rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-				colSpan={7}
-				count={rows.length}
-				rowsPerPage={rowsPerPage}
-				page={page}
-				SelectProps={{
-				  inputProps: { 'aria-label': 'rows per page' },
-				  native: true,
-				}}
-				onChangePage={handleChangePage}
-				onChangeRowsPerPage={handleChangeRowsPerPage}
-				ActionsComponent={TablePaginationActions}
-			/>
-			</TableRow>
-		</TableFooter>
-      </Table>
+							return (
+							<TableCell key={column.id} align={column.align}>
+								{column.id === shared.COLUMN_ACTIVATION_DATE ? (
+									<MuiPickersUtilsProvider utils={DateFnsUtils}>
+									<KeyboardDatePicker
+									disabled={!state.timerData[disabledProp] || editing}
+									disableToolbar
+									variant="outlined"
+									format="MM/dd/yyyy"
+									margin="normal"
+									id="date-picker-inline"
+									value={state.timerData[field] || row.activationDate}
+									onChange={(e) => onChangeDate(e, field)}
+									KeyboardButtonProps={{
+									'aria-label': 'change date',
+									}}
+									/>
+									</MuiPickersUtilsProvider>
+								)
+								: column.id === shared.COLUMN_TIMER_TERMINATION ? (
+									<Button 
+									// dRef[fieldRef]
+									onClick={() => onEdit(disabledProp)}
+									variant="contained" 
+									className={classes.reset}>
+										Edit
+									</Button>
+								) : column.format && typeof value === 'number' ? column.format(value) : value}
+							</TableCell>
+							);
+						})}
+						</TableRow>
+					);
+					})}
+				</TableBody>
+				<TableFooter> 
+					<TableRow
+					className={classes.footer}>
+					<TablePagination
+						className={classes.paginator}
+						rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+						colSpan={7}
+						count={rows.length}
+						rowsPerPage={rowsPerPage}
+						page={page}
+						SelectProps={{
+						inputProps: { 'aria-label': 'rows per page' },
+						native: true,
+						}}
+						onChangePage={handleChangePage}
+						onChangeRowsPerPage={handleChangeRowsPerPage}
+						ActionsComponent={TablePaginationActions}
+					/>
+					</TableRow>
+				</TableFooter>
+			</Table>
 
-    </TableContainer>
-  );
+		</TableContainer>
+	);
 }
