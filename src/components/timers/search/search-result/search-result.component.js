@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,7 +13,8 @@ import Paper from '@material-ui/core/Paper';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePaginationActions from './table-pagination-actions/table-pagination-actions.component';
 import dataJSON from '../../../../assets/data/timers.json';  //'../../../../assets/data/timers.json';
-
+import {  useSelector, useDispatch }  from 'react-redux';
+import { editActivationDate, enableActivationDate } from '../../../../actions';
 
 // Utils
 import * as shared from '../../../../shared/constants';
@@ -86,13 +88,23 @@ const useStyles = makeStyles({
 
 export default function SearchResult() {
 
-	const [page, setPage] = React.useState(0);
+	let editing = false;
 
+	const dispatch = useDispatch();
+	
+	const [page, setPage] = React.useState(0);
+	
+	const state = useSelector(state => state.timers);
+	  
 	const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-	const handleChangePage = (event, newPage) => {
-		setPage(newPage);
-	};
+	const handleChangePage = (event, newPage) => setPage(newPage);
+	
+	const onEdit = (filedName) => dispatch(enableActivationDate(filedName));
+	
+	const getDynamicField = (value) => value.replace(/ /g, '').replace('.', '');
+
+	const onChangeDate = (e, field) => dispatch(editActivationDate(e.target.value, field));
 
 	const handleChangeRowsPerPage = (event) => {
 		setRowsPerPage(+event.target.value);
@@ -125,12 +137,27 @@ export default function SearchResult() {
               return (
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
-                    const value = row[column.id];
+					const value = row[column.id];
+					const field = getDynamicField(row.timerType);
+					const disabledProp = field.toString().toString().substr(0, 10);
+
                     return (
                       <TableCell key={column.id} align={column.align}>
-                        {/* {column.format && typeof value === 'number' ? column.format(value) : value} */}
-						{column.id === shared.COLUMN_TIMER_TERMINATION ? (
+						{column.id === shared.COLUMN_ACTIVATION_DATE ? (
+							<TextField
+							disabled={!state.timerData[disabledProp] || editing}
+							height="25%"
+							id={column.id + row.code}
+							variant="outlined"
+							size="small"
+							value={state.timerData[field] || row.activationDate}
+							onChange={(e) => onChangeDate(e, field)}
+							/>
+						 )
+						: column.id === shared.COLUMN_TIMER_TERMINATION ? (
 							<Button 
+							// dRef[fieldRef]
+							onClick={() => onEdit(disabledProp)}
 							variant="contained" 
 							className={classes.reset}>
 								Edit

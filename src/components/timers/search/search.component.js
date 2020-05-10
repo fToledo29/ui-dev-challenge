@@ -56,8 +56,6 @@ const useStyles = makeStyles({
 
 export default function Search() {
 
-	// const [setShowResults] = React.useState(false);
-
 	const state = useSelector(state => state.timers);
 	
 	  
@@ -65,7 +63,6 @@ export default function Search() {
 
 	const onClick = () => {
 		dispatch(onSearch());
-		// setShowResults(true);
 	};
    
    const classes = useStyles();

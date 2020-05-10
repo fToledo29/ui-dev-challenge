@@ -15,6 +15,14 @@ export const TRIGGER_STATUS_PARAMETER = 'TRIGGER_STATUS_PARAMETER';
 export const TRIGGER_TYPE_PARAMETER = 'TRIGGER_TYPE_PARAMETER';
 export const SEARCH_RESULT = 'SEARCH_RESULT';
 export const SET_OPERATION = 'SET_OPERATION'; 
+export const ID_VALUE = 'ID_VALUE';
+export const STATUS_VALUE = 'STATUS_VALUE';
+export const CREATION_TIME_VALUE = 'CREATION_TIME_VALUE';
+export const TRIGSOURCE_VALUE = 'TRIGSOURCE_VALUE';
+export const ACTIVATION_DATE_VALUE = 'ACTIVATION_DATE_VALUE';
+export const TIMER_TERMINATION_VALUE = 'TIMER_TERMINATION_VALUE';
+export const ENABLE_ACTIVATION_DATE = 'ENABLE_ACTIVATION_DATE';
+
 
 // Label constants
 export const LABEL_ROUTE_TIMETS = 'timers';
@@ -32,6 +40,7 @@ export const ACTIVATION_DATE = 'Activation Date';
 export const TIMER_TERMINATION = 'Timer Rermination';
 
 // Column IDs
+export const TIMER_TYPE_VALUE = 'TIMER_TYPE_VALUE';
 export const COLUMN_TIMER_TYPE = 'timerType';
 export const COLUMN_ID = 'id';
 export const COLUMN_STATUS = 'status';
@@ -39,6 +48,7 @@ export const COLUMN_CREATION_TIME = 'creationTime';
 export const COLUMN_TRIGSOURCE = 'trigSource';
 export const COLUMN_ACTIVATION_DATE = 'activationDate';
 export const COLUMN_TIMER_TERMINATION = 'TimerRermination';
+
 
 //  Routes
 export const TIMERS_ROUTE = 'timers';

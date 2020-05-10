@@ -3,8 +3,9 @@ import * as shared from '../shared/constants';
 
 const initalState = {
 	timersSection: '',
-	searchParameters: {}
-}
+	searchParameters: {},
+	timerData: {}
+};
 
 function timersReducer (state = initalState, action) {
 	switch (action.type) {
@@ -49,7 +50,23 @@ function timersReducer (state = initalState, action) {
 			return {
 				...state,
 					timersSection: action.payload
-			}
+			};
+		case shared.ACTIVATION_DATE_VALUE:
+			return {
+				...state,
+				timerData: {
+					...state.timerData,
+					[action.row]: action.value
+				} 
+			};
+		case shared.ENABLE_ACTIVATION_DATE:
+			return {
+				...state,
+				timerData: {
+					...state.timerData,
+					[action.filedName]: !state.timerData[action.filedName]
+				}
+			};
 		default:
 			return state;
 	}
