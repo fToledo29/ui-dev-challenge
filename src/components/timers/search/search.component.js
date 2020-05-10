@@ -57,13 +57,10 @@ const useStyles = makeStyles({
 export default function Search() {
 
 	const state = useSelector(state => state.timers);
-	
-	  
+		  
 	const dispatch = useDispatch();
 
-	const onClick = () => {
-		dispatch(onSearch());
-	};
+	const onClick = () => dispatch(onSearch());
    
    const classes = useStyles();
   
@@ -71,8 +68,6 @@ export default function Search() {
       <Card className={classes.root}>
          <CardContent>
            
-
-			{/* { state.timersSection === shared.LABEL_SEARCH ?  <SearchParameters /> : null } */}
 			<SearchParameters />
 
 			<CardActions className={classes.card}>

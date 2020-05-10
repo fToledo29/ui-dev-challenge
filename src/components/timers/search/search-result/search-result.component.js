@@ -169,8 +169,7 @@ export default function SearchResult() {
 									</MuiPickersUtilsProvider>
 								)
 								: column.id === shared.COLUMN_TIMER_TERMINATION ? (
-									<Button 
-									// dRef[fieldRef]
+									<Button
 									onClick={() => onEdit(disabledProp)}
 									variant="contained" 
 									className={classes.reset}>

@@ -52,6 +52,7 @@ export const COLUMN_TIMER_TERMINATION = 'TimerRermination';
 
 //  Routes
 export const TIMERS_ROUTE = 'timers';
+export const LETTER_REVIEW_ROUTE = 'letter';
 
 
 /**

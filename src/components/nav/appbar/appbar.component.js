@@ -64,11 +64,13 @@ export default function ButtonAppBar({onChangeOperation}) {
 
 	const classes = useStyles();
 
-	const options = useSelector(state => state.nav);
+	const navState = useSelector(state => state.nav);
 
 	const dispatch = useDispatch();
 
 	const onNavigate = action => action();
+
+	const goToLetterReview = () => onChangeOperation(shared.LETTER_REVIEW_ROUTE);
 
 	const goToTimers = () => {
 		dispatch(menuOption(shared.LABEL_ROUTE_TIMETS));
@@ -76,9 +78,8 @@ export default function ButtonAppBar({onChangeOperation}) {
 		onChangeOperation(shared.TIMERS_ROUTE);
 	};
 
-
 	const getClass = () => {
-		return options.menuStatus === shared.LABEL_CLOSE ? 'side-menu_close' : 'side-menu_open';
+		return navState.menuStatus === shared.LABEL_CLOSE ? 'side-menu_close' : 'side-menu_open';
 	}
 
 	return (
@@ -155,8 +156,9 @@ export default function ButtonAppBar({onChangeOperation}) {
 					</Link>
 				</li>
 				<li>
-					<Link to="/" className="button-link">
+					<Link to="/letter" className="button-link">
 						<IconButton
+						onClick={()=> onNavigate(goToLetterReview)}
 						className={classes.menuButton}
 						edge="start"
 						color="inherit"
@@ -187,7 +189,10 @@ export default function ButtonAppBar({onChangeOperation}) {
 					</Link>
 				</li>
 				<li className="button-selected">
-					<Link to="/timers" className="button-link">
+					<Link 
+					to="/timers" 
+					onChange={()=> onNavigate(goToTimers)}
+					className="button-link">
 						<IconButton
 						className={classes.menuButton}
 						onClick={()=> onNavigate(goToTimers)}
