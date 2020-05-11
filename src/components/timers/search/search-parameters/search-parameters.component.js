@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import FormControl from '@material-ui/core/FormControl';
 import NativeSelect from '@material-ui/core/NativeSelect';
-import * as selectConfig from './config-select';
 import InputLabel from '@material-ui/core/InputLabel';
 // Redux
 import {  useSelector, useDispatch }  from 'react-redux';
@@ -14,6 +13,7 @@ import {
 	selectTriggerType
 } from '../../../../actions';
 // Utils
+import * as selectConfig from '../../../../shared/config-select';
 import * as shared from '../../../../shared/constants';
 import * as options from '../../../../shared/options'
 // Styles

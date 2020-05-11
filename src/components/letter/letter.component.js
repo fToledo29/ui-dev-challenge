@@ -5,6 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { makeStyles } from '@material-ui/core/styles';
+import SearchLetterComponent from './Search-letter/search-letter.component';
 // Utils
 import * as shared from '../../shared/constants'
 // Redux
@@ -61,7 +62,7 @@ const LetterComponent = () => {
                     </Toolbar>
                 </AppBar>
 
-				
+				<SearchLetterComponent />
                 {/* <Search /> */}
         </div>
 	);

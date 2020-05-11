@@ -35,14 +35,14 @@ export const menuOption = (route) => {
 
 export const selectSource = (source) => {
 	return {
-		type: shared.SOURCE_PARAMETER,
+		type: shared.TIMERS_SOURCE_PARAMETER,
 		payload: source
 	};
 };
 
 export const enterPrimaryID = (primaryID) => {
 	return {
-		type: shared.PRIMARY_ID_PARAMETER,
+		type: shared.TIMERS_PRIMARY_ID_PARAMETER,
 		payload: primaryID
 	};
 };
@@ -105,4 +105,47 @@ export const enableActivationDate = (filedName) => {
 	}
 }
 
-// export const 
+// Letter actions
+
+export const selectLetterSource = (value) => {
+	return {
+		type: shared.LETTER_SOURCE_PARAMETER,
+		payload: value
+	};
+};
+export const enterLeterPrimaryID = (value) => {
+	return {
+		type: shared.LETTER_PRIMARY_ID_PARAMETER,
+		payload: value
+	};
+};
+export const enterLetterRequestFrom = (value) => {
+	return {
+		type: shared.LETTER_REQUEST_DATE_FROM,
+		payload: value
+	};
+};
+export const enterLetterTo = (value) => {
+	return {
+		type: shared.LETTER_TO,
+		payload: value
+	};
+};
+export const enterLetterStatus = (value) => {
+	return {
+		type: shared.LETTER_STATUS,
+		payload: value
+	};
+};
+export const enterLetterBatchID = (value) => {
+	return {
+		type: shared.LETTER_BATCH_ID,
+		payload: value
+	};
+};
+export const enterLetterDescription = (value) => {
+	return {
+		type: shared.LETTER_DESCRIPTION,
+		payload: value
+	};
+};

@@ -7,14 +7,14 @@ const initalState = {
 	timerData: {}
 };
 
-function timersReducer (state = initalState, action) {
+const timersReducer = (state = initalState, action) => {
 	switch (action.type) {
 		case shared.SEARCH_SECTION:
 			return {
 				...state, 
 				timersSection:  action.payload 
 			};
-		case shared.SOURCE_PARAMETER: 
+		case shared.TIMERS_SOURCE_PARAMETER: 
 			return {
 				...state,
 				searchParameters: {
@@ -22,7 +22,7 @@ function timersReducer (state = initalState, action) {
 						source: action.payload
 					}
 			};
-		case shared.PRIMARY_ID_PARAMETER: 
+		case shared.TIMERS_PRIMARY_ID_PARAMETER: 
 			return {
 				...state,
 				searchParameters: {

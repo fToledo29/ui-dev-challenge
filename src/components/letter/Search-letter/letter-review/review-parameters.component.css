@@ -1,0 +1,9 @@
+form {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 200px 200px 200px 200px 200px;
+}
+
+form .field-wrapper {
+	width: 200px;
+}

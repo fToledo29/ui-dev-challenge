@@ -1,17 +1,11 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import SearchParameters from './search-parameters/search-parameters.component'
-import SearchResult from './search-result/search-result.component';
-
-// Redux
-import {  useSelector, useDispatch }  from 'react-redux';
-import { 
-	onSearch
-} from '../../../actions';
+import ReviewParametersComponent from './letter-review/review-parameters.component';
 
 // Utils
 import * as shared from '../../../shared/constants';
@@ -52,38 +46,45 @@ const useStyles = makeStyles({
 	}
 });
 
-export default function Search() {
 
-	const state = useSelector(state => state.timers);
+
+const SearchLetterComponent = () => {
+	
+	// const state = useSelector(state => state.timers);
 		  
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 
-	const onClick = () => dispatch(onSearch());
+	// const onClick = () => dispatch(onSearch());
    
    const classes = useStyles();
-  
-   return (
-      <Card className={classes.root}>
-         <CardContent>
-           
-			<SearchParameters />
 
-			<CardActions className={classes.card}>
-				<Button 
-				onClick={onClick} 
-				variant="contained"
-				className={classes.search} 
-				color="primary">
-					Search
-				</Button>
-				<Button 
-				variant="contained" 
-				className={classes.reset}>
-					Reset
-				</Button>
-			</CardActions>
-			{ (state.timersSection === shared.LABEL_SEARCH_RESULT) ?  <SearchResult/> : null }
-         </CardContent>
-      </Card>
-   );
-}
+
+	return (
+		<Card className={classes.root}>
+			<CardContent>
+			
+				{/* <SearchParameters /> */}
+
+				<ReviewParametersComponent />
+
+				<CardActions className={classes.card}>
+					<Button 
+					// onClick={onClick} 
+					variant="contained"
+					className={classes.search} 
+					color="primary">
+						Search
+					</Button>
+					<Button 
+					variant="contained" 
+					className={classes.reset}>
+						Reset
+					</Button>
+				</CardActions>
+				{/* { (state.timersSection === shared.LABEL_SEARCH_RESULT) ?  <SearchResult/> : null } */}
+			</CardContent>
+		</Card>
+	);
+};
+
+export default SearchLetterComponent;

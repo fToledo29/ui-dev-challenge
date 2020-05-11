@@ -153,19 +153,19 @@ export default function SearchResult() {
 							<TableCell key={column.id} align={column.align}>
 								{column.id === shared.COLUMN_ACTIVATION_DATE ? (
 									<MuiPickersUtilsProvider utils={DateFnsUtils}>
-									<KeyboardDatePicker
-									disabled={!state.timerData[disabledProp] || editing}
-									disableToolbar
-									variant="outlined"
-									format="MM/dd/yyyy"
-									margin="normal"
-									id="date-picker-inline"
-									value={state.timerData[field] || row.activationDate}
-									onChange={(e) => onChangeDate(e, field)}
-									KeyboardButtonProps={{
-									'aria-label': 'change date',
-									}}
-									/>
+										<KeyboardDatePicker
+										disabled={!state.timerData[disabledProp] || editing}
+										disableToolbar
+										variant="outlined"
+										format="MM/dd/yyyy"
+										margin="normal"
+										id="date-picker-inline"
+										value={state.timerData[field] || row.activationDate}
+										onChange={(e) => onChangeDate(e, field)}
+										KeyboardButtonProps={{
+										'aria-label': 'change date',
+										}}
+										/>
 									</MuiPickersUtilsProvider>
 								)
 								: column.id === shared.COLUMN_TIMER_TERMINATION ? (
