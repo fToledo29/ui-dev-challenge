@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,17 +10,11 @@ import TableRow from '@material-ui/core/TableRow';
 import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
 import TableFooter from '@material-ui/core/TableFooter';
-import {  useSelector, useDispatch }  from 'react-redux';
-import { editActivationDate, enableActivationDate } from '../../../../actions';
-import DateFnsUtils from '@date-io/date-fns';
-import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
-
 // Utils
-import dataJSON from '../../../../assets/data/timers.json';
-import TableActionsPagination from '../../../../shared/table-actions-pagination';
-import * as shared from '../../../../shared/constants';
+import TableActionsPagination from '../../../../../shared/table-actions-pagination';
+import * as shared from '../../../../../shared/constants';
+import dataJSON from '../../../../../assets/data/timers.json';
 
-console.log('dataJSON leaded: ', dataJSON);
 
 const columns = [
 	{ 
@@ -88,38 +81,23 @@ const useStyles = makeStyles({
 	},
 });
 
-export default function SearchResult() {
 
-	let editing = false;
-
-	const dispatch = useDispatch();
+const ReviewLetterSearchResultComponent = () => {
 	
 	const [page, setPage] = React.useState(0);
-	
-	const state = useSelector(state => state.timers);
 	  
 	const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 	const handleChangePage = (event, newPage) => setPage(newPage);
 	
-	const onEdit = (filedName) => dispatch(enableActivationDate(filedName));
 	
-	const getDynamicField = (value) => value.replace(/ /g, '').replace('.', '');
-
-	const onChangeDate = (value, field) => {
-		const date = value.getDate();
-		const month = value.getMonth() + 1;
-		const year = value.getFullYear();
-		const enteredDate = month + '/' + date + '/' + year ;
-		dispatch(editActivationDate(enteredDate, field));
-	}
+	const classes = useStyles();
 
 	const handleChangeRowsPerPage = (event) => {
 		setRowsPerPage(+event.target.value);
 		setPage(0);
 	};
 
-  	const classes = useStyles();
 
 	return (
 		<TableContainer component={Paper}>
@@ -146,36 +124,9 @@ export default function SearchResult() {
 						<TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
 						{columns.map((column) => {
 							const value = row[column.id];
-							const field = getDynamicField(row.timerType);
-							const disabledProp = field.toString().toString().substr(0, 10);
-
 							return (
 							<TableCell key={column.id} align={column.align}>
-								{column.id === shared.COLUMN_ACTIVATION_DATE ? (
-									<MuiPickersUtilsProvider utils={DateFnsUtils}>
-										<KeyboardDatePicker
-										disabled={!state.timerData[disabledProp] || editing}
-										disableToolbar
-										variant="outlined"
-										format="MM/dd/yyyy"
-										margin="normal"
-										id="date-picker-inline"
-										value={state.timerData[field] || row.activationDate}
-										onChange={(e) => onChangeDate(e, field)}
-										KeyboardButtonProps={{
-										'aria-label': 'change date',
-										}}
-										/>
-									</MuiPickersUtilsProvider>
-								)
-								: column.id === shared.COLUMN_TIMER_TERMINATION ? (
-									<Button
-									onClick={() => onEdit(disabledProp)}
-									variant="contained" 
-									className={classes.reset}>
-										Edit
-									</Button>
-								) : column.format && typeof value === 'number' ? column.format(value) : value}
+								{ column.format && typeof value === 'number' ? column.format(value) : value}
 							</TableCell>
 							);
 						})}
@@ -207,4 +158,6 @@ export default function SearchResult() {
 
 		</TableContainer>
 	);
-}
+};
+
+export default ReviewLetterSearchResultComponent;

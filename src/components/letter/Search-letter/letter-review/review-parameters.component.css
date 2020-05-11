@@ -4,6 +4,29 @@ form {
 	grid-template-columns: 200px 200px 200px 200px 200px;
 }
 
+/* .form-one {
+	display: flex;
+	justify-content: space-around;
+}
+
+.form-two {
+	display: flex;
+	justify-content: space-evenly;
+	justify-items: flex-start;
+	flex-flow: row;
+
+}
+
+
 form .field-wrapper {
-	width: 200px;
+	width: calc(100% / 4.5)
+} */
+
+/* .field-wrapper.letter-description {
+	grid-column-start: 2; 
+	grid-column-end: 4; 
+} */
+
+.field-wrapper.letter-description > * {
+	/* width: 100%; */
 }

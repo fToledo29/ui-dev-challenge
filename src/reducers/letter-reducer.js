@@ -66,6 +66,12 @@ const letterReducer = (state = initalState, action) => {
 					description: action.payload
 				}
 			};
+		case shared.ON_SEARCH_LETTER_REVIEW:
+			return {
+				...state,
+				letterSection: action.letterReviewSection
+
+			}
 		default:
 			return state;
 	}

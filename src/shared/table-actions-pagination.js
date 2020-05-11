@@ -7,7 +7,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 // Utils
-import * as shared from '../../../../../shared/constants';
+import * as shared from './constants';
 
 
 const useStyles1 = makeStyles((theme) => ({
@@ -20,7 +20,7 @@ const useStyles1 = makeStyles((theme) => ({
 	  },
   }));
 
-export default function TablePaginationActions(props) {
+export default function TableActionsPagination(props) {
 	const classes = useStyles1();
 	const theme = useTheme();
 	const { count, page, rowsPerPage, onChangePage } = props;

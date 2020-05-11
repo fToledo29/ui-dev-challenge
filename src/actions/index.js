@@ -149,3 +149,11 @@ export const enterLetterDescription = (value) => {
 		payload: value
 	};
 };
+
+
+export const onSearchLetterReview = () => {
+	return {
+		type: shared.ON_SEARCH_LETTER_REVIEW,
+		letterReviewSection: shared.LABEL_LETTER_REVIEW_SEARCH_RESULT
+	};
+};

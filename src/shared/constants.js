@@ -29,6 +29,7 @@ export const LETTER_TO = 'LETTER_TO';
 export const LETTER_STATUS = 'LETTER_STATUS';
 export const LETTER_BATCH_ID = 'LETTER_BATCH';
 export const LETTER_DESCRIPTION = 'LETTER_DESCRIPTION';
+export const ON_SEARCH_LETTER_REVIEW = 'ON_SEARCH_LETTER_REVIEW';
 
 // Label constants
 export const LABEL_ROUTE_TIMETS = 'timers';
@@ -36,6 +37,7 @@ export const LABEL_OPEN = 'Opened';
 export const LABEL_CLOSE = 'Close';
 export const LABEL_SEARCH = 'Search';
 export const LABEL_SEARCH_RESULT = 'Search Result';
+export const LABEL_LETTER_REVIEW_SEARCH_RESULT = 'Search Result';
 // Column Names
 export const TIMER_TYPE = 'Timer Type';
 export const ID = 'ID';
@@ -72,19 +74,4 @@ export const USESTYLES = {
 	textTransform: 'none',
 	aquaColor: '#10a5aa',
 	whiteColor: '#fff'
-	// backgroundColor: mainBlueColor,
 };
-
-// /**
-//  * Sets main theme
-//  */
-// export const THEME = createMuiTheme({
-// 	palette: {
-// 		primary: {
-//       	main: mainBlueColor,
-//    	 },
-//     	secondary: {
-//       	main: "#0089CF",
-//     	}
-// 	}
-// });

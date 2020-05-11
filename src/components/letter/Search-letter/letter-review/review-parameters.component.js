@@ -71,14 +71,14 @@ const ReviewParametersComponent = () => {
 	const dispatch = useDispatch();
 
 	const onChangeDate = (value, action) => {
-		const date = value.getDate();
-		const month = value.getMonth() + 1;
-		const year = value.getFullYear();
-		const enteredDate = month + '/' + date + '/' + year ;
-	
-		console.log('Given Date: ', enteredDate);
+		if(value) {
 
-		dispatch(action(enteredDate));
+			const date = value.getDate();
+			const month = value.getMonth() + 1;
+			const year = value.getFullYear();
+			const enteredDate = month + '/' + date + '/' + year ;
+			dispatch(action(enteredDate));
+		}
 	}
 
 	const change = (event, action) => {
@@ -96,7 +96,8 @@ const ReviewParametersComponent = () => {
 	return (
 		<div>
 			<form 
-			className={classes.root}
+			className="form-one"
+			// className={classes.root}
 			noValidate autoComplete="off">
 				<div className="field-wrapper">
 					
@@ -121,7 +122,7 @@ const ReviewParametersComponent = () => {
 
 				<div className="field-wrapper">
 				
-					<InputLabel className={classes.pos}  required>Primary ID</InputLabel>
+					<InputLabel className={classes.pos}>Primary ID</InputLabel>
 					<TextField
 					height="25%"
 					className={classes.backGroundField}
@@ -196,9 +197,12 @@ const ReviewParametersComponent = () => {
 
 				</div>
 
+			{/* </form>
+
+			<form className="form-two"> */}
 				<div className="field-wrapper">
-				
-					<InputLabel className={classes.pos}  required>Batch ID</InputLabel>
+					
+					<InputLabel className={classes.pos}>Batch ID</InputLabel>
 					<TextField
 					height="25%"
 					className={classes.backGroundField}
@@ -212,14 +216,14 @@ const ReviewParametersComponent = () => {
 
 				</div>
 
-				<div className="field-wrapper">
+				<div className="field-wrapper letter-description">
 				
 					<InputLabel className={classes.pos}>Description</InputLabel>
 					
 					<FormControl className={classes.margin}>
 						
 						<NativeSelect
-						id="letter-status"
+						id="letter-description"
 						value={letterState.searchParameters.description}
 						onChange={(e) => change(e, enterLetterDescription)}
 						input={<BootstrapInput18Rem />}>
@@ -231,7 +235,6 @@ const ReviewParametersComponent = () => {
 					</FormControl>
 
 				</div>
-
 			</form>
 		</div>
 	);
